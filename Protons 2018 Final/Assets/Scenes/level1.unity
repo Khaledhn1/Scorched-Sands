@@ -4765,6 +4765,7 @@ GameObject:
   - component: {fileID: 504579972}
   - component: {fileID: 504579971}
   - component: {fileID: 504579976}
+  - component: {fileID: 504579970}
   - component: {fileID: 504579969}
   m_Layer: 0
   m_Name: Player
@@ -4776,19 +4777,31 @@ GameObject:
 --- !u!114 &504579969
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114598294710022244, guid: c83cafb421ddbaf469043f31192e7f13,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 504579968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6da350e0ea47b4e975ea8e4eba3119, type: 3}
+  m_Script: {fileID: 11500000, guid: ceb829d6f2bf4824ea5c4a3bcb086e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  bar: {fileID: 1661558931}
-  ammocurrent: {fileID: 300012357}
-  currentAmmo: {fileID: 710575583}
+  gun: {fileID: 710575583}
+  player: {fileID: 504579970}
+  CurrentAmmo: {fileID: 300012357}
+  MaxAmmo: {fileID: 1029249499}
+  health: {fileID: 1661558931}
+--- !u!114 &504579970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 504579968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc41e518bb545b429fea21eff1d50bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!54 &504579971
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11041,6 +11054,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1024845685}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1029249499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114281294927688038, guid: 497997cee66007d43be3b3a0324cc84d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1215060382}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1032858767
 GameObject:
   m_ObjectHideFlags: 0
