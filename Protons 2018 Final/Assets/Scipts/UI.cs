@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour {
 
 	public Gun1 gun;
-	public Target1 player;
+	public Target player;
 	public Text CurrentAmmo;
 	public Text MaxAmmo;
 	public Slider health;
