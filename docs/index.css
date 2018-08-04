@@ -1,6 +1,6 @@
 body{
 	background: #ffffff url("background.jpg") no-repeat right top;
-	background-size: 100% 600%;
+	background-size: fit;
 	}
 p,h1{
 	color: white;
