@@ -1,59 +1,61 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Pause : MonoBehaviour {
 
-	GameObject[] pauseObjects;
+	//public GameObject gun;
+	public static bool isPaused;
+	public GameObject pausemenu;
+	public FirstPersonController mouseLook;
+	public Gun gun;
 
-	// Use this for initialization
-	void Start () {
-		Time.timeScale = 1;
-		pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
-		hidePaused();
-	}
+
+    void Start () {
+		isPaused = false;
+        //exit = false;
+        pausemenu.SetActive(false);
+    }
 
 	// Update is called once per frame
 	void Update () {
+		if (isPaused) {
+			pauseGame (true);
+			mouseLook.enabled = false;
+			gun.enabled = false;
+			Cursor.visible = true;
+		} else {
+			pauseGame (false);
+			mouseLook.enabled = true;
+			gun.enabled = true;
+			Cursor.visible = false;
+		}
 
-		if(Input.GetKeyDown(KeyCode.Escape))
-		{
-			if(Time.timeScale == 1)
-			{
-				Time.timeScale = 0;
-				showPaused();
-			} else if (Time.timeScale == 0){
-				Debug.Log ("high");
-				Time.timeScale = 1;
-				hidePaused();
-			}
+		if (Input.GetButtonDown ("Cancel")) {
+			switchPause ();
+
 		}
 	}
+	void pauseGame(bool state){
+		if (state) {
+			Time.timeScale = 0.0f;
 
-
-
-	public void pauseControl(){
-			if(Time.timeScale == 1)
-			{
-				Time.timeScale = 0;
-				showPaused();
-			} else if (Time.timeScale == 0){
-				Time.timeScale = 1;
-				hidePaused();
-			}
+			//gun.GetComponent<AudioSource> ().enabled = false;
+		} else {
+			Time.timeScale = 1.0f;
+			pausemenu.SetActive (false);
+			//gun.GetComponent<AudioSource> ().enabled = true;
+		}
+		pausemenu.SetActive (state);
 	}
-
-	public void showPaused(){
-		foreach(GameObject g in pauseObjects){
-			g.SetActive(true);
+	public void switchPause(){
+		if (isPaused) {
+			isPaused = false;
+		} else {
+			isPaused = true;
 		}
 	}
-
-	public void hidePaused(){
-		foreach(GameObject g in pauseObjects){
-			g.SetActive(false);
-		}
-	}
-
 
 }

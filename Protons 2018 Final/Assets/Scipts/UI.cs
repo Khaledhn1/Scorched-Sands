@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour {
 
-	public Gun1 gun;
+	public Gun gun;
 	public Target player;
 	public Text CurrentAmmo;
 	public Text MaxAmmo;

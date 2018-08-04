@@ -3200,6 +3200,7 @@ MonoBehaviour:
   damage: 40
   range: 100
   maxAmmo: 10
+  currentAmmo: 0
   reloadTime: 1
   animator: {fileID: 95361473864488614}
   fireRate: 15

@@ -7,8 +7,8 @@ public class Gun : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
 
-    public int maxAmmo = 10;
-    private int currentAmmo;
+    public int maxAmmo = 100;
+    public int currentAmmo;
     public float reloadTime = 1f;
     private bool isReloading = false;
     public Animator animator;
@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        currentAmmo = maxAmmo;
+        currentAmmo = 10;
     }
 
     // Update is called once per frame
@@ -33,13 +33,13 @@ public class Gun : MonoBehaviour
             return;
         }
 
-        if (currentAmmo <= 0)
+        if (currentAmmo <= 0 && maxAmmo>0)
         {
             StartCoroutine(Reload());
             return;
         }
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo>0)
         {
             nextTimeToFire = Time.time + 1 / fireRate;
             Shoot();
@@ -56,7 +56,8 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
 
         animator.SetBool("Reloading", false);
-        currentAmmo = maxAmmo;
+        currentAmmo = 10;
+		maxAmmo = maxAmmo-10;
         isReloading = false;
     }
     void Shoot()
