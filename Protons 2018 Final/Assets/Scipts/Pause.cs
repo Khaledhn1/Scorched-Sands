@@ -11,6 +11,7 @@ public class Pause : MonoBehaviour {
 	public GameObject pausemenu;
 	public FirstPersonController mouseLook;
 	public Gun gun;
+	public GameObject htp;
 
 
     void Start () {
@@ -26,11 +27,13 @@ public class Pause : MonoBehaviour {
 			mouseLook.enabled = false;
 			gun.enabled = false;
 			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.Confined;
 		} else {
 			pauseGame (false);
 			mouseLook.enabled = true;
 			gun.enabled = true;
 			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
 		}
 
 		if (Input.GetButtonDown ("Cancel")) {
@@ -56,6 +59,25 @@ public class Pause : MonoBehaviour {
 		} else {
 			isPaused = true;
 		}
+	}
+	public void mainmenu(){
+		SceneManager.LoadScene(0);
+	}
+	public void resume(){
+		pausemenu.SetActive(false);
+		isPaused = false;
+		pauseGame (false);
+		mouseLook.enabled = true;
+		gun.enabled = true;
+		Cursor.visible = false;
+	}
+	public void htpON(){
+		pausemenu.SetActive(false);
+		htp.SetActive(true);
+	}
+	public void htpOFF(){
+		pausemenu.SetActive(true);
+		htp.SetActive(false);
 	}
 
 }

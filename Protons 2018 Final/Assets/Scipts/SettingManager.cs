@@ -21,6 +21,7 @@ public class SettingManager : MonoBehaviour {
 	
 	public void OnEnable(){
 		gs = new GameSettings();
+
 		
 		fullscreenToggle.onValueChanged.AddListener(delegate{ OnFullscreenToggle(); });
 		resolutionDropdown.onValueChanged.AddListener(delegate{OnResolutionChange();});
@@ -36,6 +37,7 @@ public class SettingManager : MonoBehaviour {
 		}
 		LoadSettings();
 	}
+
 	public void OnFullscreenToggle(){
 		gs.fullscreen = Screen.fullScreen = fullscreenToggle.isOn;
 	}
