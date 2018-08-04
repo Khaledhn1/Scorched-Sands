@@ -29,6 +29,9 @@ public class Gun1 : MonoBehaviour {
             return;
         }
 
+		if(maxAmmo <=0 && currentAmmo<= 0){
+			return;
+		}
         if(currentAmmo <= 0)
         {
             StartCoroutine(Reload());

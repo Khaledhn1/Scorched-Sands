@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Gun : MonoBehaviour {
+public class Gun : MonoBehaviour
+{
 
     public float damage = 10f;
     public float range = 100f;
@@ -13,36 +14,39 @@ public class Gun : MonoBehaviour {
     public Animator animator;
     private float nextTimeToFire = 0f;
     public float fireRate = 15f;
-
+    public ParticleSystem particleSystem;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
     public Camera fpsCam;
 
-	private void Start()
-	{
+    private void Start()
+    {
         currentAmmo = maxAmmo;
-	}
+    }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
 
-        if(isReloading)
+        if (isReloading)
         {
             return;
         }
 
-        if(currentAmmo <= 0)
+        if (currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
-		
-        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire )
+
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1 / fireRate;
             Shoot();
         }
-	}
+    }
 
-    IEnumerator Reload ()
+    IEnumerator Reload()
     {
         isReloading = true;
         Debug.Log("Reloading..");
@@ -57,10 +61,10 @@ public class Gun : MonoBehaviour {
     }
     void Shoot()
     {
-        currentAmmo --;
+        currentAmmo--;
 
         RaycastHit hit;
-        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
@@ -70,6 +74,10 @@ public class Gun : MonoBehaviour {
             }
         }
 
-
+        if (Input.GetButton("Fire1") && !isReloading) ;
+        {
+            particleSystem.Play();
+            audioSource.PlayOneShot(audioClip);
+        }
     }
 }
