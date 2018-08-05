@@ -10,7 +10,7 @@ public class Pause : MonoBehaviour {
 	public static bool isPaused;
 	public GameObject pausemenu;
 	public FirstPersonController mouseLook;
-	public Gun gun;
+	public GameObject gun;
 	public GameObject htp;
 
 
@@ -25,13 +25,13 @@ public class Pause : MonoBehaviour {
 		if (isPaused) {
 			pauseGame (true);
 			mouseLook.enabled = false;
-			gun.enabled = false;
+			gun.SetActive(false);
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.Confined;
 		} else {
 			pauseGame (false);
 			mouseLook.enabled = true;
-			gun.enabled = true;
+			gun.SetActive(true);
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;
 		}
@@ -68,7 +68,7 @@ public class Pause : MonoBehaviour {
 		isPaused = false;
 		pauseGame (false);
 		mouseLook.enabled = true;
-		gun.enabled = true;
+		gun.SetActive(true);
 		Cursor.visible = false;
 	}
 	public void htpON(){
