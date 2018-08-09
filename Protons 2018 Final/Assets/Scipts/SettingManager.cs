@@ -14,15 +14,16 @@ public class SettingManager : MonoBehaviour {
 	public Slider volumeSlider;
 	public Button AcceptButton;
 	
-	public AudioSource audio;
-	AudioSource[] sources;
+	//public GameObject parent;
+	//AudioSource[] sources;
 	public Resolution[] resolutions;
 	public GameSettings gs;
 	public Buttons buttons;
 	
 	public void OnEnable(){
 		gs = new GameSettings();
-		sources = GameObject.FindSceneObjectsOfType(typeof(AudioSource))as AudioSource[];
+		//sources = parent.GetComponent<AudioSource>()as AudioSource[];
+		//Debug.Log(sources);
 		
 		fullscreenToggle.onValueChanged.AddListener(delegate{ OnFullscreenToggle(); });
 		resolutionDropdown.onValueChanged.AddListener(delegate{OnResolutionChange();});
@@ -56,7 +57,7 @@ public class SettingManager : MonoBehaviour {
 		QualitySettings.vSyncCount = gs.vsync = VSyncDropdown.value;
 	}
 	public void OnVolumeChange(){
-		audio.volume = gs.volume = volumeSlider.value;
+		AudioListener.volume = gs.volume = volumeSlider.value;
 	}
 	public void OnApplyClick(){
 		SaveSettings();
@@ -76,9 +77,10 @@ public class SettingManager : MonoBehaviour {
 		fullscreenToggle.isOn = gs.fullscreen;
 		
 		resolutionDropdown.RefreshShownValue();
-		foreach(AudioSource audiosource in sources){
-			audiosource.volume = gs.volume;
-		}
+		AudioListener.volume = gs.volume;
+		//foreach(AudioSource audiosource in sources){
+		//	audiosource.volume = gs.volume;
+		//}
 		
 	}
 
