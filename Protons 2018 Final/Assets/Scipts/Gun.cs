@@ -75,7 +75,7 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("Fire1") && !isReloading) ;
+        if (Input.GetButton("Fire1") && !isReloading) 
         {
             particleSystem.Play();
             audioSource.PlayOneShot(audioClip);
