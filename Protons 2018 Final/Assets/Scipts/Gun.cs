@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip audioClip;
     public Camera fpsCam;
+    public GameObject impactEffect;
 
     private void Start()
     {
@@ -80,5 +81,11 @@ public class Gun : MonoBehaviour
             particleSystem.Play();
             audioSource.PlayOneShot(audioClip);
         }
+        if(hit.rigidbody != null)
+        {
+            hit.rigidbody.AddForce(-hit.normal * 30f);
+        }
+        GameObject hitGo = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(hitGo, 2f);
     }
 }
