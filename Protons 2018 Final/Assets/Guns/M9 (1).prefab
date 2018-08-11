@@ -544,6 +544,8 @@ MonoBehaviour:
   audioSource: {fileID: 82730552765245410}
   audioClip: {fileID: 8300000, guid: 05d9094b145464f15b419886f7d75c51, type: 3}
   fpsCam: {fileID: 20969904328916082, guid: f44453abb5e1d46c8a377c3b9006dff3, type: 2}
+  impactEffect: {fileID: 1179865073892620, guid: 3a6df3d5a02854771bd2aa3ee25b8ac6,
+    type: 2}
 --- !u!198 &198656952883949152
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -41,15 +41,15 @@ public class FloorWeapon : MonoBehaviour {
                         }
                         if (weaponHolder.CurrentWeapon == 2)
                         {
-                        gun = secondary.transform;
+                         gun = secondary.transform;
                         GameObject clone = Instantiate(prefab);
                         Destroy(secondary);
                         print("destroyed");
                         clone.transform.parent = gun.transform.parent;
                         clone.transform.position = gun.transform.position;
-                        clone.transform.rotation = gun.transform.rotation;
-                        weaponHolder.SecondaryGun = clone;
-                    }
+                        clone.transform.rotation =  new Quaternion (gun.transform.rotation.x,gun.transform.rotation.y,gun.transform.rotation.z,gun.transform.rotation.w);
+						weaponHolder.SecondaryGun = clone;
+						}
                 }
             }
         }
