@@ -129,3 +129,9 @@ a {
 button:hover, a:hover {
     opacity: 0.7;
 }
+h1,h3{
+	display:inline-block;
+}
+.2{
+	display: inline-block;
+}
