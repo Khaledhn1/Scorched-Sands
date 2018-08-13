@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ShowOnPause
   - Weapon
+  - Vehicle
   layers:
   - Default
   - TransparentFX
