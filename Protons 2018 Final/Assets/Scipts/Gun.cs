@@ -34,7 +34,7 @@ public class Gun : MonoBehaviour
             return;
         }
 
-        if (currentAmmo <= 0 && maxAmmo>0)
+        if ((currentAmmo <= 0 && maxAmmo >0)||Input.GetButton("Reload"))
         {
             StartCoroutine(Reload());
             return;
@@ -57,8 +57,8 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
 
         animator.SetBool("Reloading", false);
-        currentAmmo = 10;
-		maxAmmo = maxAmmo-10;
+		maxAmmo = maxAmmo-10+currentAmmo;
+        currentAmmo = 10;		
         isReloading = false;
     }
     void Shoot()
