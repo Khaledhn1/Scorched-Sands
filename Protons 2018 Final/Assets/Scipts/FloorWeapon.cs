@@ -18,7 +18,7 @@ public class FloorWeapon : MonoBehaviour {
         Ray r = new Ray(playerCamera.transform.position, playerCamera.transform.forward); 
 
         //if we hit something
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (Physics.Raycast(r, out hitInfo))
             {
