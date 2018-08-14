@@ -19,6 +19,7 @@ public class Gun : MonoBehaviour
     public AudioClip audioClip;
     public Camera fpsCam;
     public GameObject impactEffect;
+    public int maxClip = 10;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class Gun : MonoBehaviour
             return;
         }
 
-        if ((currentAmmo <= 0 && maxAmmo >0)||Input.GetButton("Reload"))
+        if ((currentAmmo <= 0 && maxAmmo >0) || (Input.GetButton("Reload")) && currentAmmo < maxClip)
         {
             StartCoroutine(Reload());
             return;
@@ -57,8 +58,8 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
 
         animator.SetBool("Reloading", false);
-		maxAmmo = maxAmmo-10+currentAmmo;
-        currentAmmo = 10;		
+		    maxAmmo = maxAmmo - maxClip + currentAmmo;
+        currentAmmo = maxClip;
         isReloading = false;
     }
     void Shoot()
@@ -76,7 +77,7 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("Fire1") && !isReloading) 
+        if (Input.GetButton("Fire1") && !isReloading)
         {
             particleSystem.Play();
             audioSource.PlayOneShot(audioClip);
