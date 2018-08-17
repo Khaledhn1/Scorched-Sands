@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Map.unity
     guid: b82edc6b1f943b240892dc7af8c65672
+  - enabled: 0
+    path: Assets/Scenes/Weapon Testing.unity
+    guid: 42d80eea0f3cf4963828b151d442ceee
   m_configObjects: {}

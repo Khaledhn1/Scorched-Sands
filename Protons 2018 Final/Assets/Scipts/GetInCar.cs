@@ -23,35 +23,26 @@ public class GetInCar : MonoBehaviour {
         MyCamera.enabled = false;
 
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        if(Input.GetKey(KeyCode.E))
+	// Update is called once per frame
+	void Update (){
+
+        if(Input.GetKeyUp(KeyCode.E))
         {
-			if(CarActive == false){
-				ChangeChar(); 
-			}
-			else if (CarActive == true)
-            {
-                CarActive = false;
-                Debug.Log("Enabled Char");
-                carUserControl.enabled = false;
-                carController.enabled = false;
-                CharFPC.enabled = true;
-                CharCC.enabled = true;
-                PlayerCam.enabled = true;
-				MyCamera.enabled = false;
-				Char.SetActive(true);
-                Char.transform.position = new Vector3(MyCar.transform.position.x + 6f,MyCar.transform.position.y,MyCar.transform.position.z);
-            }
-		}
-		
-	}
+          print(CarActive);
+			    if(!CarActive) ChangeChar(); else startPlayer();
+        }
+}
+  void startPlayer(){
+  togglePlayer();
+  toggleCar();
+  Char.transform.position = new Vector3(MyCar.transform.position.x -2f,MyCar.transform.position.y,MyCar.transform.position.z);
+
+  }
 	void ChangeChar(){
-		
-		RaycastHit hitInfo; 
-        Ray r = new Ray(PlayerCam.transform.position, PlayerCam.transform.forward); 
+
+		RaycastHit hitInfo;
+        Ray r = new Ray(PlayerCam.transform.position, PlayerCam.transform.forward);
 
 		if (Physics.Raycast(r, out hitInfo))
             {
@@ -60,18 +51,29 @@ public class GetInCar : MonoBehaviour {
                     if (CarActive == false)
                     {
 						Debug.Log("Disabled Char");
-                        CarActive = true;
-                        CharFPC.enabled = false;
-                        CharCC.enabled = false;
-                        carUserControl.enabled = true;
-                        carController.enabled = true;
-                        MyCamera.enabled = true;
-                        
-                        PlayerCam.enabled = false;
-						Char.SetActive(false);
+                        togglePlayer();
+                        toggleCar();
                     }
                 }
             }
-            
+
 	}
+  void togglePlayer()
+  {
+
+      CharCC.enabled = !CharCC.enabled;
+      CharFPC.enabled = !CharFPC.enabled;
+      PlayerCam.enabled = !PlayerCam.enabled;
+      Char.SetActive(CharCC.enabled);
+  }
+  void toggleCar()
+  {
+
+      MyCamera.enabled = !MyCamera.enabled;
+      carUserControl.enabled = !carUserControl.enabled;
+      carController.enabled = !carController.enabled;
+      Char.SetActive(CharCC.enabled);
+      CarActive = !CarActive;
+
+  }
 }

@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Follow : MonoBehaviour {
 
-	// Use this for initialization
+	public Transform player;
+	public Target PlayerHealth;
+	public float speed = 3f;
 	void Start () {
-		
+
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		
-	}
+        transform.LookAt(player.position);
+        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+ 
+        if 
+		(Vector3.Distance(transform.position, player.position) > 1f)
+		{
+            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+        }
+ 
+    }
 }
+
