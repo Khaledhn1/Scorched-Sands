@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Wander : MonoBehaviour {
-	
+
 	public float speed = 5;
 	public float directionChangeInterval = 1;
 	public float maxHeadingChange = 30;
@@ -11,7 +11,6 @@ public class Wander : MonoBehaviour {
 	CharacterController controller;
 	float heading;
 	Vector3 targetRotation;
-	
 
 	void Awake ()
 	{

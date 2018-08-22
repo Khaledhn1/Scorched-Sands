@@ -274,6 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4688852910489858}
   - component: {fileID: 114959572263727136}
+  - component: {fileID: 114605083556448510}
   m_Layer: 0
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -2253,15 +2254,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1030945014816894}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.04, y: 7.446, z: 34.5}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalRotation: {x: -0, y: -0.9913347, z: -0, w: 0.13136075}
+  m_LocalPosition: {x: -67.77663, y: -0.000002921208, z: -95.52486}
+  m_LocalScale: {x: 1, y: 1.0142, z: 1}
   m_Children:
   - {fileID: 4577683474414746}
   - {fileID: 4793470925414538}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -164.904, z: 0}
 --- !u!4 &4506007240929462
 Transform:
   m_ObjectHideFlags: 1
@@ -2378,9 +2379,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1060133757451368}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.96125007, z: 0}
-  m_LocalScale: {x: 1, y: 1.2324986, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.98599887, z: 1}
   m_Children:
   - {fileID: 4323269564133726}
   - {fileID: 4793400933969216}
@@ -2767,8 +2768,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908431474197192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7687497, z: 0}
-  m_LocalScale: {x: 1, y: 1.25, z: 1}
+  m_LocalPosition: {x: 0, y: 1.384, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4688852910489858}
   m_Father: {fileID: 4490930499891672}
@@ -4026,6 +4027,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+--- !u!114 &114605083556448510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170217927308200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4b1022cd62346fab68819668dbde74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponHolder: {fileID: 114959572263727136}
+  playerCam: {fileID: 20969904328916082}
+  RecoilStrength: 10
 --- !u!114 &114696738548692150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4048,7 +4063,9 @@ MonoBehaviour:
   audioSource: {fileID: 82427298757747650}
   audioClip: {fileID: 8300000, guid: 05d9094b145464f15b419886f7d75c51, type: 3}
   fpsCam: {fileID: 20969904328916082}
-  impactEffect: {fileID: 0}
+  impactEffect: {fileID: 1179865073892620, guid: 3a6df3d5a02854771bd2aa3ee25b8ac6,
+    type: 2}
+  maxClip: 10
 --- !u!114 &114750558824047682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4071,7 +4088,9 @@ MonoBehaviour:
   audioSource: {fileID: 82912125966368968}
   audioClip: {fileID: 8300000, guid: 05d9094b145464f15b419886f7d75c51, type: 3}
   fpsCam: {fileID: 20969904328916082}
-  impactEffect: {fileID: 0}
+  impactEffect: {fileID: 1179865073892620, guid: 3a6df3d5a02854771bd2aa3ee25b8ac6,
+    type: 2}
+  maxClip: 10
 --- !u!114 &114959572263727136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4279,7 +4298,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.1454394
+  m_Height: 1.8
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3

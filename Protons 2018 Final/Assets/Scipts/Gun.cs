@@ -3,10 +3,9 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
-
+    bool isShooting;
     public float damage = 10f;
     public float range = 100f;
-
     public int maxAmmo = 100;
     public int currentAmmo;
     public float reloadTime = 1f;
@@ -20,10 +19,12 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public GameObject impactEffect;
     public int maxClip = 10;
+    private int currentRecoil;
 
     private void Start()
     {
         currentAmmo = 10;
+        currentRecoil = 0;
     }
 
     // Update is called once per frame
@@ -45,6 +46,20 @@ public class Gun : MonoBehaviour
         {
             nextTimeToFire = Time.time + 1 / fireRate;
             Shoot();
+            isShooting = true;
+        }
+        else
+        {
+          isShooting = false;
+        }
+        if (currentRecoil > 0 && isShooting)
+        {
+          transform.rotation *= Quaternion.Euler(-2,0,0);
+        }
+        else
+        {
+          transform.rotation *= Quaternion.Euler(currentRecoil * 2,0,0);
+          currentRecoil = 0;
         }
     }
 
@@ -62,9 +77,10 @@ public class Gun : MonoBehaviour
         currentAmmo = maxClip;
         isReloading = false;
     }
-    void Shoot()
+    public void Shoot()
     {
         currentAmmo--;
+        currentRecoil++;
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
@@ -75,17 +91,14 @@ public class Gun : MonoBehaviour
                 target.TakeDamage(damage);
             }
         }
-
-        if (Input.GetButton("Fire1") && !isReloading)
-        {
-            particleSystem.Play();
-            audioSource.PlayOneShot(audioClip);
-        }
+        particleSystem.Play();
+        audioSource.PlayOneShot(audioClip);
         if(hit.rigidbody != null)
         {
             hit.rigidbody.AddForce(-hit.normal * 30f);
         }
         GameObject hitGo = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(hitGo, 2f);
+        print(currentRecoil);
     }
 }

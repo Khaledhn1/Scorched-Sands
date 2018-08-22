@@ -72,9 +72,9 @@ public class DayNightController : MonoBehaviour {
 		}
 		//This basically turn on and off the sun light based on day / night
 		if (controlIntensity && sunLight && (currentTime >= 18.0f || currentTime <= 5.5f)) {
-			sunLight.intensity = Mathf.MoveTowards(sunLight.intensity,0.03f,Time.deltaTime*daySpeedMultiplier*10.0f);
+			sunLight.intensity = Mathf.MoveTowards(sunLight.intensity,0.1f,Time.deltaTime*daySpeedMultiplier*10.0f);
 		} else if (controlIntensity && sunLight) {
-			sunLight.intensity = Mathf.MoveTowards(sunLight.intensity,0.62f,Time.deltaTime*daySpeedMultiplier*10.0f);
+			sunLight.intensity = Mathf.MoveTowards(sunLight.intensity,0.86f,Time.deltaTime*daySpeedMultiplier*10.0f);
 		}
 
 	}
