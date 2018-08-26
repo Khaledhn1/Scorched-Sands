@@ -40,9 +40,18 @@ public class HumanBehavior : MonoBehaviour {
 					}
 				}				
 			}else if(dist < 3){
-				playerHealth.health -= 40;
+				StartCoroutine(MeleeAttack());
 			}
 		}
+	}
+	IEnumerator MeleeAttack(){
+		while(true){
+			playerHealth.health -= 40;
+			yield return new WaitForSeconds(2);
+			//play animation
+			
+		}
+		
 	}
 	IEnumerator genericBehaviour(){
 		while(!playerInSight){

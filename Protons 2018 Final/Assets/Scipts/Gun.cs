@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     public int maxAmmo = 100;
     public int currentAmmo;
     public float reloadTime = 1f;
-    private bool isReloading = false;
+    public bool isReloading = false;
     public Animator animator;
     private float nextTimeToFire = 0f;
     public float fireRate = 15f;
@@ -19,12 +19,10 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public GameObject impactEffect;
     public int maxClip = 10;
-    private int currentRecoil;
 
     private void Start()
     {
         currentAmmo = 10;
-        currentRecoil = 0;
     }
 
     // Update is called once per frame
@@ -52,15 +50,6 @@ public class Gun : MonoBehaviour
         {
           isShooting = false;
         }
-        if (currentRecoil > 0 && isShooting)
-        {
-          transform.rotation *= Quaternion.Euler(-2,0,0);
-        }
-        else
-        {
-          transform.rotation *= Quaternion.Euler(currentRecoil * 2,0,0);
-          currentRecoil = 0;
-        }
     }
 
     IEnumerator Reload()
@@ -80,7 +69,6 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         currentAmmo--;
-        currentRecoil++;
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
@@ -99,6 +87,5 @@ public class Gun : MonoBehaviour
         }
         GameObject hitGo = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(hitGo, 2f);
-        print(currentRecoil);
     }
 }

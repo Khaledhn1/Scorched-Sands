@@ -6,9 +6,10 @@ public class Follow : MonoBehaviour {
 
 	public Transform player;
 	public Target PlayerHealth;
+	private Animator anim;
 	public float speed = 3f;
 	void Start () {
-
+		anim = gameObject.GetComponentInChildren<Animator>();
 	}
 	
 	void Update () {
@@ -19,7 +20,10 @@ public class Follow : MonoBehaviour {
 		(Vector3.Distance(transform.position, player.position) > 1f)
 		{
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+			anim.Play("run");
+			
         }
+		else anim.Play("idle");
  
     }
 }

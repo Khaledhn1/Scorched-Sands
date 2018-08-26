@@ -11,11 +11,12 @@ public class Wander : MonoBehaviour {
 	CharacterController controller;
 	float heading;
 	Vector3 targetRotation;
+	Animator anim;
 
 	void Awake ()
 	{
 		controller = GetComponent<CharacterController>();
-
+		anim = GetComponentInChildren<Animator>();
 		// Set random initial rotation
 		heading = Random.Range(0, 360);
 		transform.eulerAngles = new Vector3(0, heading, 0);
@@ -28,6 +29,8 @@ public class Wander : MonoBehaviour {
 		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * directionChangeInterval);
 		var forward = transform.TransformDirection(Vector3.forward);
 		controller.SimpleMove(forward * speed);
+		anim.Play("run");
+		
 	}
 
 	/// <summary>
