@@ -12,6 +12,7 @@ public class UI : MonoBehaviour {
 	public Target player;
 	public Text CurrentAmmo;
 	public Text MaxAmmo;
+	public Animator playerAnim;
 	public Slider health;
 	// Use this for initialization
 	void Start () {
@@ -35,10 +36,13 @@ public class UI : MonoBehaviour {
 		if (guna.activeSelf){
 			CurrentAmmo.text = gun1.currentAmmo.ToString();
 			MaxAmmo.text = gun1.maxAmmo.ToString();
+			playerAnim.Play("Idle");
 		}
 		else{
 			CurrentAmmo.text = gun2.currentAmmo.ToString();
 			MaxAmmo.text = gun2.maxAmmo.ToString();
+			
+			playerAnim.Play("Pistol Idle");
 		}
 	}
 }
