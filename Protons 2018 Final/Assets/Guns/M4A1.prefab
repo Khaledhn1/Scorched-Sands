@@ -629,7 +629,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 05d9094b145464f15b419886f7d75c51, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 968431bcbd67545f188012816f65384d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -749,6 +749,7 @@ MonoBehaviour:
   maxAmmo: 100
   currentAmmo: 0
   reloadTime: 2
+  isReloading: 0
   animator: {fileID: 95915994454950600}
   fireRate: 15
   particleSystem: {fileID: 198476473520334042}
@@ -757,6 +758,7 @@ MonoBehaviour:
   fpsCam: {fileID: 0}
   impactEffect: {fileID: 1179865073892620, guid: 3a6df3d5a02854771bd2aa3ee25b8ac6,
     type: 2}
+  maxClip: 10
 --- !u!198 &198476473520334042
 ParticleSystem:
   m_ObjectHideFlags: 1

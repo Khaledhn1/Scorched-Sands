@@ -3,7 +3,7 @@
 public class Target : MonoBehaviour {
 
     public float health = 50f;
-
+    public bool isDestroyed = false;
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -15,6 +15,7 @@ public class Target : MonoBehaviour {
     public void Die()
     {
         Destroy(gameObject);
+        isDestroyed = true;
     }
 
 }
