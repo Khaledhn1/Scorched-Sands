@@ -19,7 +19,8 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public GameObject impactEffect;
     public int maxClip = 10;
-    public Target myTarget;
+    public bool targeted;
+    public int myTargets;
 
     private void Start()
     {
@@ -78,7 +79,10 @@ public class Gun : MonoBehaviour
             if (target != null)
             {
                 target.TakeDamage(damage);
-                myTarget = target;
+            }
+            if(target != null && target.isDestroyed)
+            {
+                myTargets++;
             }
         }
         particleSystem.Play();
