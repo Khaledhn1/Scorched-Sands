@@ -11,7 +11,7 @@ public class DayNightController : MonoBehaviour {
 	//what time this cycle should start
 	public float startTime = 12.0f;
 	//what's the current time
-	float currentTime = 0.0f;
+	public float currentTime = 0.0f;
 	public string timeString = "00:00 AM";
 	//x rotation value of the light
 	private float xValueOfSun = 90.0f;

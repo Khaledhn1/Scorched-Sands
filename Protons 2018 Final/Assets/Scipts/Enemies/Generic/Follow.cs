@@ -13,18 +13,25 @@ public class Follow : MonoBehaviour {
 	}
 	
 	void Update () {
-        transform.LookAt(player.position);
-        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
  
         if 
 		(Vector3.Distance(transform.position, player.position) > 1f)
 		{
-            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
 			anim.Play("run");
 			
         }
 		else anim.Play("idle");
  
     }
+	void LateUpdate(){
+		 transform.Rotate(new Vector3(0, 0, 0), Space.Self);
+		 transform.LookAt(player.position);
+		 if
+		(Vector3.Distance(transform.position, player.position) > 1f)
+		{
+			
+            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+		}
+	}
 }
 

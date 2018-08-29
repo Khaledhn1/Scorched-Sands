@@ -26,11 +26,14 @@ public class Wander : MonoBehaviour {
 
 	void Update ()
 	{
-		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * directionChangeInterval);
+		
 		var forward = transform.TransformDirection(Vector3.forward);
 		controller.SimpleMove(forward * speed);
 		anim.Play("run");
 		
+	}
+	void LateUpdate(){
+		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * directionChangeInterval);
 	}
 
 	/// <summary>

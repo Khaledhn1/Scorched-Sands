@@ -8,13 +8,26 @@ public class HumanBehavior : MonoBehaviour {
 	private Follow follow;
 	public bool playerInSight;
 	public Transform player;
-	public Target playerHealth;
+	public Target playerHealth;	
+    public ParticleSystem particleSystem;
+	
+	private Animator anim;
+	
 	private Gun gun;
+	public AudioClip audioClip;
+	private AudioSource shoot;
+	
+    private float nextTimeToFire = 0f;
+    public float fireRate = 5f;
+	
 
 	// Use this for initialization
 	void Start () {
 		wander = gameObject.GetComponent<Wander>();
 		follow = gameObject.GetComponent<Follow>();
+		
+		anim = gameObject.GetComponent<Animator>();
+		shoot = gameObject.GetComponentInChildren<AudioSource>();
 		//playerHealth = player.GetComponent<Target>();
 
 		playerInSight = false;
@@ -25,33 +38,29 @@ public class HumanBehavior : MonoBehaviour {
 		StartCoroutine(genericBehaviour());
 	}
 	void Update(){
-		if(playerInSight){
-			float dist = Vector3.Distance(player.position, gameObject.transform.position);
-			if (dist > 5 && dist < 30){
-				RaycastHit hitInfo;
-				Ray r = new Ray(gameObject.transform.position, gameObject.transform.forward);
-				Debug.Log("Created Ray");
-				if (Physics.Raycast(r, out hitInfo))
-				{Debug.Log("Ray Hit Something");
-					if (hitInfo.transform.CompareTag("Player"))
-					{
-						Debug.Log("It's a player!");
-						playerHealth.health -= 20;
-					}
-				}				
-			}else if(dist < 3){
-				StartCoroutine(MeleeAttack());
+		if(Time.time >= nextTimeToFire) {
+			
+		nextTimeToFire = Time.time + 1 / fireRate;
+			if(playerInSight){
+				float dist = Vector3.Distance(player.position, gameObject.transform.position);
+				if (dist > 5 && dist < 30){
+					RaycastHit hitInfo;
+					Ray r = new Ray(gameObject.transform.position, gameObject.transform.forward);
+					Debug.Log("Created Ray");
+					if (Physics.Raycast(r, out hitInfo))
+					{Debug.Log("Ray Hit Something");
+						if (hitInfo.transform.CompareTag("Player"))
+						{
+							Debug.Log("It's a player!");
+							
+							particleSystem.Play();
+							shoot.PlayOneShot(audioClip);
+							playerHealth.health -= 20;
+						}
+					}	
+				}
 			}
 		}
-	}
-	IEnumerator MeleeAttack(){
-		while(true){
-			playerHealth.health -= 40;
-			yield return new WaitForSeconds(2);
-			//play animation
-			
-		}
-		
 	}
 	IEnumerator genericBehaviour(){
 		while(!playerInSight){
@@ -63,8 +72,8 @@ public class HumanBehavior : MonoBehaviour {
 				if (hitInfo.transform.CompareTag("Player"))
 				{
 						switchBehavior();
+						
 						yield return new WaitForSeconds(5);
-						switchBehavior();
 				}
 			}
 			yield return null ;
@@ -72,9 +81,11 @@ public class HumanBehavior : MonoBehaviour {
 		
 	}
 	private void switchBehavior(){
+		
 		playerInSight = !playerInSight;
 		wander.enabled = !wander.enabled;
 		follow.enabled = !follow.enabled;
+		anim.Play("Run");
 	}
 
 }
