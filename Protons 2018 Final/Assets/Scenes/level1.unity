@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: c476a13debb1d8a42a23c905e24892df
+  m_OcclusionCullingData: {fileID: 36300000, guid: 9d74eda6c5b354094becbc4c9df761aa,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -1686,6 +1687,24 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114499700638980110, guid: 96ca756c7f147374ab29323e527ccd45,
+        type: 2}
+      propertyPath: PrimaryGun
+      value: 
+      objectReference: {fileID: 1675210294}
+    - target: {fileID: 114499700638980110, guid: 96ca756c7f147374ab29323e527ccd45,
+        type: 2}
+      propertyPath: SecondaryGun
+      value: 
+      objectReference: {fileID: 257476419}
+    - target: {fileID: 1201891904854926, guid: 96ca756c7f147374ab29323e527ccd45, type: 2}
+      propertyPath: m_Name
+      value: Recoil Controller 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904591523463872, guid: 96ca756c7f147374ab29323e527ccd45, type: 2}
+      propertyPath: m_Name
+      value: Recoil Controller 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114331117999189440, guid: 96ca756c7f147374ab29323e527ccd45, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 96ca756c7f147374ab29323e527ccd45, type: 2}
@@ -2325,6 +2344,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 249639403}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &257476419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1636092818509808, guid: 96ca756c7f147374ab29323e527ccd45,
+    type: 2}
+  m_PrefabInternal: {fileID: 177437409}
 --- !u!1 &260810390
 GameObject:
   m_ObjectHideFlags: 0
@@ -7991,6 +8015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860463290}
   - component: {fileID: 860463289}
+  - component: {fileID: 860463291}
   m_Layer: 0
   m_Name: Water4AdvancedReflectionSceneCamera
   m_TagString: Untagged
@@ -8044,13 +8069,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 860463288}
-  m_LocalRotation: {x: 0.0020830894, y: 0.99759394, z: -0.03593281, w: 0.05925274}
-  m_LocalPosition: {x: 23.4224, y: 5.4756126, z: 81.78411}
+  m_LocalRotation: {x: 0.022065973, y: -0.9779804, z: -0.14479874, w: -0.14866371}
+  m_LocalPosition: {x: -723.7145, y: -1185.3231, z: 4540.3853}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &860463291
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860463288}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &865891161
 GameObject:
   m_ObjectHideFlags: 0
@@ -11839,7 +11872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d1da6f286524d7a92c0e6a95de604a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponholder: {fileID: 1229158616}
+  kills: 0
   weaponHolder: {fileID: 1229158619}
 --- !u!114 &1229158625
 MonoBehaviour:
@@ -19619,6 +19652,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1663411010}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1675210294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1098746070359794, guid: 96ca756c7f147374ab29323e527ccd45,
+    type: 2}
+  m_PrefabInternal: {fileID: 177437409}
 --- !u!1 &1686739044
 GameObject:
   m_ObjectHideFlags: 0
@@ -22518,7 +22556,8 @@ MonoBehaviour:
   impactEffect: {fileID: 1179865073892620, guid: 3a6df3d5a02854771bd2aa3ee25b8ac6,
     type: 2}
   maxClip: 20
-  myTarget: {fileID: 0}
+  targeted: 0
+  myTargets: 0
 --- !u!95 &2030056139
 Animator:
   serializedVersion: 3

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ScoreCounter : MonoBehaviour {
     public int kills;
-
+    public WeaponHolder weaponHolder;
     void Update () {
-        Gun gun = (Gun)FindObjectOfType(typeof(Gun));
-        kills = gun.myTargets;
+        Gun primaryGun = weaponHolder.PrimaryGun.GetComponent<Gun>();
+        Gun secondaryGun = weaponHolder.SecondaryGun.GetComponent<Gun>();
+        kills = primaryGun.myTargets + secondaryGun.myTargets;
         print(kills);
 	}
 }
