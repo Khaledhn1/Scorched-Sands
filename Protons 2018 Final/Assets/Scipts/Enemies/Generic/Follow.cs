@@ -6,10 +6,10 @@ public class Follow : MonoBehaviour {
 
 	public Transform player;
 	public Target PlayerHealth;
-	private Animator anim;
+	public Animator anim;
 	public float speed = 3f;
 	void Start () {
-		anim = gameObject.GetComponentInChildren<Animator>();
+		
 	}
 	
 	void Update () {
