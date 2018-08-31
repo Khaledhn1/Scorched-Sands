@@ -1,5 +1,4 @@
 ![Overview](https://khaledhn1.github.io/Scorched-Sands/SS-LOGO-Trans.png)
-Scorched Sands is a fps horror game based in a modern day distopia setting where you fight off gangs during the day and horrible creations of radiation at night
 
 # Story
 The world was in total destruction because of World War 3 which went nuclear. The remaining states have divided their cities into factions. Every faction was a big landmass surrounded by a wall. It was perfectly symmetrical from inside. However, the faction system did not hold for long. Evolved monsters broke the factions' defense and only attack at night. This forced the people to stay home for most of the time. Also gangs began to emerge and rule the streets. You are one of the remaining people on the planet, (Ethan) and your goal is to survive from the gangs that rule the cities in daylight and the monsters that lurk in the darkness. How long will you survive… 
