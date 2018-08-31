@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour {
 		if(PlayerHealth.health <=0) return;
 		int spawnPointIndex = Random.Range(0,spawnPoints.Length);
 		
-		if (time.currentTime < 8.0f && time.currentTime > 21.0f){
+	if (time.currentTime < 8.0f || time.currentTime > 21.0f){
 			zom = Instantiate (Zombie,spawnPoints[spawnPointIndex].position,spawnPoints[spawnPointIndex].rotation); 
 			zom.SetActive(true);
 		}else{
