@@ -9,6 +9,13 @@ public class ScoreCounter : MonoBehaviour {
         Gun primaryGun = weaponHolder.PrimaryGun.GetComponent<Gun>();
         Gun secondaryGun = weaponHolder.SecondaryGun.GetComponent<Gun>();
         kills = primaryGun.myTargets + secondaryGun.myTargets;
-        print(kills);
+        if(primaryGun.isShooting)
+        {
+            print(kills);
+        }
+        if(secondaryGun.isShooting)
+        {
+            print(kills);
+        }
 	}
 }

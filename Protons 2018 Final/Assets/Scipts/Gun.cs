@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
-    bool isShooting;
+    public bool isShooting;
     public float damage = 10f;
     public float range = 100f;
     public int maxAmmo = 100;

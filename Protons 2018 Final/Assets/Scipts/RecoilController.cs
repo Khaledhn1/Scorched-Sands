@@ -5,39 +5,37 @@ using UnityEngine;
 public class RecoilController : MonoBehaviour {
 	public Transform recoilMod;
 	GameObject weapon;
+    public Camera myCamera;
 	float maxRecoil_x = -20f;
 	float recoilSpeed = 10f;
 	float recoil = 0.0f;
-	Quaternion original;
-	public Gun gun;
+    public WeaponHolder weaponHolder;
+    Gun activeGun;
+
 
 	void Start()
 	{
-		original = weapon.transform.rotation;
-		gun = GetComponent<Gun>();
+        weaponHolder = GetComponent<WeaponHolder>();
+
 	}
 	void Update () {
 		if(Input.GetButtonDown("Fire1"))
 		{
-			print("Recoiled");
-			recoil += 0.01f;
-		}
-		recoiling();
+			recoil += 0.08f;
+
+        }
+        recoiling();
 
 	}
 	void recoiling()
 	{
-		if(recoil > 0 && !gun.isReloading)
-		{
-			Transform myTransform = transform;
-			myTransform.Rotate (Vector3.right, maxRecoil_x * recoilSpeed * Time.deltaTime);
-			recoil -= Time.deltaTime;
-		}
-		else
-		{
-			Transform myTransform = transform;
-			myTransform.Rotate(Vector3.right, original.x * recoilSpeed * Time.deltaTime);
-			recoil = 0;
-		}
+        if (recoil > 0)
+        {
+            Transform myCameraTransform = myCamera.transform;
+            myCameraTransform.Rotate(Vector3.right, maxRecoil_x * recoilSpeed * Time.deltaTime);
+            recoil -= Time.deltaTime;
+            print("recoil");
+            print(myCameraTransform.rotation);
+        }
 	}
 }

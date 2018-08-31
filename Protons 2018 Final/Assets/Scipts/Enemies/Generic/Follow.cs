@@ -9,8 +9,8 @@ public class Follow : MonoBehaviour {
 	public Animator anim;
 	public float speed = 3f;
 	void Start () {
-		
-	}
+        anim = GetComponentInChildren<Animator>();
+    }
 	
 	void Update () {
  

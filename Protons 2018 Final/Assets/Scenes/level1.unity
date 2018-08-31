@@ -2583,16 +2583,16 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 257476419}
-  m_LocalRotation: {x: -0, y: -0.000000014901161, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13436627, y: -0.14445417, z: -1.2415432}
+  m_LocalRotation: {x: -0, y: -0.000000013038516, z: -0, w: 1}
+  m_LocalPosition: {x: -0.13436598, y: -0.14445482, z: -1.2415426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2072935206}
   - {fileID: 1573658310}
   - {fileID: 1503588740}
   - {fileID: 933469546}
-  m_Father: {fileID: 1560052570}
-  m_RootOrder: 0
+  m_Father: {fileID: 1229158618}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -177.29301, z: 0}
 --- !u!1 &260810390
 GameObject:
@@ -5045,6 +5045,10 @@ Prefab:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1229158622}
+    - target: {fileID: 1224972777455508, guid: 2285f7481aba64d4db0aa1ecc61bdf75, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2285f7481aba64d4db0aa1ecc61bdf75, type: 2}
   m_IsPrefabAsset: 0
@@ -9328,12 +9332,12 @@ Prefab:
         type: 2}
       propertyPath: guns.Array.data[0]
       value: 
-      objectReference: {fileID: 1266631474}
+      objectReference: {fileID: 0}
     - target: {fileID: 114134680687339904, guid: 497997cee66007d43be3b3a0324cc84d,
         type: 2}
       propertyPath: guns.Array.data[1]
       value: 
-      objectReference: {fileID: 1560052569}
+      objectReference: {fileID: 0}
     - target: {fileID: 114134680687339904, guid: 497997cee66007d43be3b3a0324cc84d,
         type: 2}
       propertyPath: gun1
@@ -9379,6 +9383,11 @@ Prefab:
       propertyPath: playerAnim
       value: 
       objectReference: {fileID: 748937462}
+    - target: {fileID: 114134680687339904, guid: 497997cee66007d43be3b3a0324cc84d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 497997cee66007d43be3b3a0324cc84d, type: 2}
   m_IsPrefabAsset: 0
@@ -13336,6 +13345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d639b91f279474d389e52ac2cebcacfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShooting: 0
   damage: 40
   range: 100
   maxAmmo: 100
@@ -13383,6 +13393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d639b91f279474d389e52ac2cebcacfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShooting: 0
   damage: 60
   range: 150
   maxAmmo: 200
@@ -13411,8 +13422,8 @@ Transform:
   m_LocalPosition: {x: -0.051999092, y: -0.23500003, z: -0.5431012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1266631475}
-  - {fileID: 1560052570}
+  - {fileID: 1675210295}
+  - {fileID: 257476422}
   m_Father: {fileID: 1417923636}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13430,6 +13441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrimaryGun: {fileID: 1675210294}
   SecondaryGun: {fileID: 257476419}
+  currentGun: {fileID: 0}
   CurrentWeapon: 0
 --- !u!114 &1229158620
 MonoBehaviour:
@@ -14149,52 +14161,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265641245}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1266631474
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1201891904854926, guid: 96ca756c7f147374ab29323e527ccd45,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1266631475}
-  - component: {fileID: 1266631476}
-  m_Layer: 10
-  m_Name: Recoil Controller 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1266631475
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4458862595162372, guid: 96ca756c7f147374ab29323e527ccd45,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1266631474}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1675210295}
-  m_Father: {fileID: 1229158618}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1266631476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114809633940587258, guid: 96ca756c7f147374ab29323e527ccd45,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1266631474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a2e2bfc0e204783bd359f7d05c1a0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recoilMod: {fileID: 1266631475}
-  gun: {fileID: 0}
 --- !u!1 &1271717485
 GameObject:
   m_ObjectHideFlags: 0
@@ -15479,6 +15445,7 @@ GameObject:
   - component: {fileID: 1417923634}
   - component: {fileID: 1417923633}
   - component: {fileID: 1417923632}
+  - component: {fileID: 1417923637}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -15546,6 +15513,20 @@ Transform:
   m_Father: {fileID: 1229158623}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1417923637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417923631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a2e2bfc0e204783bd359f7d05c1a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoilMod: {fileID: 1417923636}
+  myCamera: {fileID: 511742771}
+  weaponHolder: {fileID: 1229158619}
 --- !u!1 &1432515284
 GameObject:
   m_ObjectHideFlags: 0
@@ -21373,37 +21354,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1541149385}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1560052569
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1904591523463872, guid: 96ca756c7f147374ab29323e527ccd45,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1560052570}
-  m_Layer: 10
-  m_Name: Recoil Controller 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1560052570
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4716589960999172, guid: 96ca756c7f147374ab29323e527ccd45,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1560052569}
-  m_LocalRotation: {x: -0, y: 0.0000000018626451, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 257476422}
-  m_Father: {fileID: 1229158618}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1573461133
 GameObject:
   m_ObjectHideFlags: 0
@@ -27017,15 +26967,15 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1675210294}
-  m_LocalRotation: {x: -0, y: -0.999636, z: -0, w: -0.026979398}
-  m_LocalPosition: {x: -0.15436898, y: 0.13354652, z: -0.17554356}
-  m_LocalScale: {x: 0.50000185, y: 0.50000006, z: 0.50000185}
+  m_LocalRotation: {x: -0, y: -0.99963605, z: -0, w: -0.0269794}
+  m_LocalPosition: {x: -0.15436868, y: 0.13354719, z: -0.17554294}
+  m_LocalScale: {x: 0.50000197, y: 0.50000006, z: 0.50000197}
   m_Children:
   - {fileID: 1739535718}
   - {fileID: 1815108736}
   - {fileID: 1605572412}
   - {fileID: 1843077377}
-  m_Father: {fileID: 1266631475}
+  m_Father: {fileID: 1229158618}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -183.092, z: 0}
 --- !u!95 &1675210296

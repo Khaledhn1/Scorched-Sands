@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour {
     public GameObject PrimaryGun, SecondaryGun;
+    public GameObject currentGun;
     public int CurrentWeapon;
 
 	// Use this for initialization
@@ -26,6 +27,14 @@ public class WeaponHolder : MonoBehaviour {
             PrimaryGun.SetActive(false);
             SecondaryGun.SetActive(true);
             CurrentWeapon = 2;
+        }
+        if(CurrentWeapon == 1)
+        {
+            currentGun = PrimaryGun;
+        }
+        else
+        {
+            currentGun = SecondaryGun;
         }
 	}
 }
