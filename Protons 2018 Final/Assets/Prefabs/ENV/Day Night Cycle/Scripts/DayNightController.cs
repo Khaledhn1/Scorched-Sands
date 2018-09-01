@@ -3,7 +3,7 @@ using System.Collections;
 [System.Serializable]
 public class DayNightController : MonoBehaviour {
 	//Speed of the cycle (if you set this to 1 the one hour in the cycle will pass in 1 real life second)
-	public float daySpeedMultiplier = 0.1f;
+	public float daySpeedMultiplier = 0.06f;
 	//main directional light
 	public Light sunLight;
 	//control intensity of sun?
@@ -72,7 +72,7 @@ public class DayNightController : MonoBehaviour {
 		}
 		//This basically turn on and off the sun light based on day / night
 		if (controlIntensity && sunLight && (currentTime >= 18.0f || currentTime <= 5.5f)) {
-			sunLight.intensity = Mathf.MoveTowards(sunLight.intensity,0.1f,Time.deltaTime*daySpeedMultiplier*10.0f);
+			sunLight.intensity = Mathf.MoveTowards(sunLight.intensity,0.22f,Time.deltaTime*daySpeedMultiplier*10.0f);
 		} else if (controlIntensity && sunLight) {
 			sunLight.intensity = Mathf.MoveTowards(sunLight.intensity,0.86f,Time.deltaTime*daySpeedMultiplier*10.0f);
 		}
