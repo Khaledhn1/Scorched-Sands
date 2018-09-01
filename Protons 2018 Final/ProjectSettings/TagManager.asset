@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Vehicle
   - Water
+  - EnemySpawnPoint
   layers:
   - Default
   - TransparentFX
