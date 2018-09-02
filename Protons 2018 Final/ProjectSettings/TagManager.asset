@@ -9,6 +9,9 @@ TagManager:
   - Vehicle
   - Water
   - EnemySpawnPoint
+  - ItemSpawnPoint
+  - Ammo
+  - Health
   layers:
   - Default
   - TransparentFX
