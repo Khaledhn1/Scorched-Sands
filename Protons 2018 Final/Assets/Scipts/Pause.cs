@@ -22,25 +22,28 @@ public class Pause : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//Disable Player control
 		if (isPaused) {
 			pauseGame (true);
 			mouseLook.enabled = false;
 			gun.SetActive(false);
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.Confined;
-		} else {
+		} //Enable Player control
+		else {
 			pauseGame (false);
 			mouseLook.enabled = true;
 			gun.SetActive(true);
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;
 		}
-
+		//Enable and disable pause
 		if (Input.GetButtonDown ("Cancel")) {
 			switchPause ();
 
 		}
 	}
+	//Stop all ingame calculations
 	void pauseGame(bool state){
 		if (state) {
 			Time.timeScale = 0.0f;
@@ -53,6 +56,7 @@ public class Pause : MonoBehaviour {
 		}
 		pausemenu.SetActive (state);
 	}
+	//Switch between pause and unpause
 	public void switchPause(){
 		if (isPaused) {
 			isPaused = false;
@@ -60,9 +64,11 @@ public class Pause : MonoBehaviour {
 			isPaused = true;
 		}
 	}
+	//Exit
 	public void mainmenu(){
 		SceneManager.LoadScene(0);
 	}
+	//Reenable everything
 	public void resume(){
 		pausemenu.SetActive(false);
 		isPaused = false;
@@ -71,10 +77,13 @@ public class Pause : MonoBehaviour {
 		gun.SetActive(true);
 		Cursor.visible = false;
 	}
+	//HOW TO PLAY
 	public void htpON(){
 		pausemenu.SetActive(false);
 		htp.SetActive(true);
 	}
+	
+	//HOW TO PLAY OFF
 	public void htpOFF(){
 		pausemenu.SetActive(true);
 		htp.SetActive(false);

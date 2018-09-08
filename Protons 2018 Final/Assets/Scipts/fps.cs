@@ -14,10 +14,13 @@ public class fps : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (Input.GetButtonDown("FPS")){
+			//ENABLE
 			if (ison){
 				fpsCounter.SetActive(false);
 				ison = false;
+				//DISABLE
 			}else{
 				fpsCounter.SetActive(true);
 				ison = true;

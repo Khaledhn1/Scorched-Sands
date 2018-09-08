@@ -16,10 +16,12 @@ public class Buttons : MonoBehaviour {
 			Application.Quit();
 		}
 	}
+	//enable options menu
 	public void Options(){
 		 MM.SetActive(false); 
 		 Options_Menu.SetActive(true);
 	}
+	//Enable Main menu
 	public void MainMenu(){
 		 MM.SetActive(true); 
 		 Options_Menu.SetActive(false);

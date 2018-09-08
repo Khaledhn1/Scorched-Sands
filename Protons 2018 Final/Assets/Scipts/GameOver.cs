@@ -11,6 +11,7 @@ public class GameOver : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//If player is dead GAMEOVER
 		if (player.health <= 0){
 			game.SetActive(false);
 			go.SetActive(true);
@@ -18,6 +19,7 @@ public class GameOver : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Confined;
 		}
 	}
+	//Back button
 	public void BTMM(){
 		SceneManager.LoadScene(0);
 	}

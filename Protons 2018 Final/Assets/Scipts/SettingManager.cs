@@ -19,7 +19,7 @@ public class SettingManager : MonoBehaviour {
 	public Resolution[] resolutions;
 	public GameSettings gs;
 	public Buttons buttons;
-	
+	//ON START
 	public void OnEnable(){
 		gs = new GameSettings();
 		//sources = parent.GetComponent<AudioSource>()as AudioSource[];
