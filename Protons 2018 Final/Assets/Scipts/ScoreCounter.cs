@@ -5,9 +5,11 @@ using UnityEngine;
 public class ScoreCounter : MonoBehaviour {
     public int kills;
     public WeaponHolder weaponHolder;
+    public Gun primaryGun;
+    public Gun secondaryGun;
     void Update () {
-        Gun primaryGun = weaponHolder.PrimaryGun.GetComponent<Gun>();
-        Gun secondaryGun = weaponHolder.SecondaryGun.GetComponent<Gun>();
+        primaryGun = weaponHolder.PrimaryGun.GetComponent<Gun>();
+        secondaryGun = weaponHolder.SecondaryGun.GetComponent<Gun>();
         kills = primaryGun.myTargets + secondaryGun.myTargets;
         if(primaryGun.isShooting)
         {

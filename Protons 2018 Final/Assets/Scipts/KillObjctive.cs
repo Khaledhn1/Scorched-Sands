@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class KillObjctive : MonoBehaviour {
     ScoreCounter scoreCounter;
-    public int score;
+    public int requiredScore;
+    public bool isDone = false;
 	void Start () {
         scoreCounter = (ScoreCounter)FindObjectOfType(typeof(ScoreCounter));
 	}
 	
 	void Update () {
-        if (scoreCounter.kills == score)
+        if (scoreCounter.kills == requiredScore)
         {
             EndObjective();
         }
@@ -18,5 +19,7 @@ public class KillObjctive : MonoBehaviour {
     void EndObjective()
     {
         print("Yay");
+        isDone = true;
+        Destroy(gameObject);
     }
 }

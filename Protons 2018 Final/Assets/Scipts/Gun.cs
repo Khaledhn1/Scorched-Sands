@@ -13,7 +13,7 @@ public class Gun : MonoBehaviour
     public Animator animator;
     private float nextTimeToFire = 0f;
     public float fireRate = 15f;
-    public ParticleSystem particleSystem;
+    public ParticleSystem particlesystem;
     public AudioSource audioSource;
     public AudioClip audioClip;
     public Camera fpsCam;
@@ -85,7 +85,7 @@ public class Gun : MonoBehaviour
                 myTargets++;
             }
         }
-        particleSystem.Play();
+        particlesystem.Play();
         audioSource.PlayOneShot(audioClip);
         if(hit.rigidbody != null)
         {

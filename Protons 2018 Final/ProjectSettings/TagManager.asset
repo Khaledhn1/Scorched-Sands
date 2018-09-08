@@ -12,6 +12,7 @@ TagManager:
   - ItemSpawnPoint
   - Ammo
   - Health
+  - ObjectiveSpawnPoint
   layers:
   - Default
   - TransparentFX

@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LocationObjective : MonoBehaviour {
-    public GameObject player;
+    GameObject player;
     public GameObject myLoc;
-    public float dist;
-	void Update () {
+    float dist;
+    public bool isDone = false;
+    public int requiredDist = 1;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+        print(player.gameObject.name);
+    }
+    void Update () {
         dist = Vector3.Distance(player.transform.position, myLoc.transform.position);
-        if(dist<2)
+        if(dist<requiredDist)
         {
             EndObjective();
         }
@@ -16,5 +24,7 @@ public class LocationObjective : MonoBehaviour {
     void EndObjective()
     {
         print("yay");
+        isDone = true;
+        Destroy(gameObject);
     }
 }

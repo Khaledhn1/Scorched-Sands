@@ -6,13 +6,18 @@ public class FloorWeapon : MonoBehaviour {
 
     public GameObject playerCamera;
     public GameObject prefab;
-    public GameObject primary;
-    public GameObject secondary;
+    GameObject primary;
+    GameObject secondary;
     public WeaponHolder weaponHolder;
     Transform gun;
 
-	// Update is called once per frame
-	void Update()
+    private void Start()
+    {
+        primary = weaponHolder.PrimaryGun;
+        secondary = weaponHolder.SecondaryGun;
+    }
+    // Update is called once per frame
+    void Update()
     {
         RaycastHit hitInfo; 
         Ray r = new Ray(playerCamera.transform.position, playerCamera.transform.forward); 
@@ -30,15 +35,17 @@ public class FloorWeapon : MonoBehaviour {
                     
                         if(weaponHolder.CurrentWeapon == 1)
                         {
-                            gun = primary.transform;
+                        gun = primary.transform;
                         GameObject clone = Instantiate(prefab);
                         Destroy(primary);
                         print("destroyed");
                         clone.transform.parent = gun.transform.parent;
                         clone.transform.position = gun.transform.position;
-                        clone.transform.rotation = gun.transform.rotation;
-                            weaponHolder.PrimaryGun = clone;
-                        }
+                        clone.transform.rotation = new Quaternion(gun.transform.rotation.x, gun.transform.rotation.y, gun.transform.rotation.z, gun.transform.rotation.w);
+                        weaponHolder.PrimaryGun = clone;
+                        Camera myCam = playerCamera.GetComponent<Camera>();
+                        clone.GetComponent<Gun>().fpsCam = myCam;
+                    }
                         if (weaponHolder.CurrentWeapon == 2)
                         {
                          gun = secondary.transform;
@@ -49,7 +56,9 @@ public class FloorWeapon : MonoBehaviour {
                         clone.transform.position = gun.transform.position;
                         clone.transform.rotation =  new Quaternion (gun.transform.rotation.x,gun.transform.rotation.y,gun.transform.rotation.z,gun.transform.rotation.w);
 						weaponHolder.SecondaryGun = clone;
-						}
+                        Camera myCam = playerCamera.GetComponent<Camera>();
+                        clone.GetComponent<Gun>().fpsCam = myCam;
+                    }
                 }
             }
         }

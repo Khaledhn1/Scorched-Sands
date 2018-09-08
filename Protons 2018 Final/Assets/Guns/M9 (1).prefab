@@ -533,19 +533,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d639b91f279474d389e52ac2cebcacfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShooting: 0
   damage: 5
   range: 50
   maxAmmo: 100
   currentAmmo: 0
   reloadTime: 1
+  isReloading: 0
   animator: {fileID: 0}
   fireRate: 15
-  particleSystem: {fileID: 198656952883949152}
+  particlesystem: {fileID: 198656952883949152}
   audioSource: {fileID: 82730552765245410}
   audioClip: {fileID: 8300000, guid: 05d9094b145464f15b419886f7d75c51, type: 3}
   fpsCam: {fileID: 20969904328916082, guid: f44453abb5e1d46c8a377c3b9006dff3, type: 2}
   impactEffect: {fileID: 1179865073892620, guid: 3a6df3d5a02854771bd2aa3ee25b8ac6,
     type: 2}
+  maxClip: 10
+  targeted: 0
+  myTargets: 0
 --- !u!198 &198656952883949152
 ParticleSystem:
   m_ObjectHideFlags: 1

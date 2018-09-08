@@ -12,6 +12,7 @@ public class WeaponHolder : MonoBehaviour {
         PrimaryGun.SetActive(true);
         SecondaryGun.SetActive(false);
         CurrentWeapon = 1;
+        currentGun = PrimaryGun;
 	}
 	
 	// Update is called once per frame
@@ -36,5 +37,6 @@ public class WeaponHolder : MonoBehaviour {
         {
             currentGun = SecondaryGun;
         }
+
 	}
 }
