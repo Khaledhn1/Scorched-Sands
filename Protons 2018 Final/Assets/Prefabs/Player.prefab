@@ -692,9 +692,10 @@ GameObject:
   - component: {fileID: 54703236685458586}
   - component: {fileID: 82297455974148258}
   - component: {fileID: 114950864135597578}
-  - component: {fileID: 64871049945912060}
   - component: {fileID: 114066541045534786}
   - component: {fileID: 114335653549612584}
+  - component: {fileID: 114064995412029224}
+  - component: {fileID: 114592144796121266}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1581,7 +1582,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636092818509808}
   m_LocalRotation: {x: -0, y: -0.000000013038516, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13436598, y: -0.14445482, z: -1.2415426}
+  m_LocalPosition: {x: -0.193, y: -0.045, z: -0.695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4850641677323902}
@@ -2659,8 +2660,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408130053243602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.04, y: 8.151, z: 34.5}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 418.15, y: -15.589981, z: 588.12}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4505651714008924}
   m_Father: {fileID: 0}
@@ -2827,7 +2828,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -3405,20 +3406,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64871049945912060
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1408130053243602}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300006, guid: b235179bd2a63d1468dd430670338c55, type: 3}
 --- !u!75 &75260385784918312
 ConstantForce:
   m_ObjectHideFlags: 1
@@ -3790,6 +3777,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114064995412029224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408130053243602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a146203583342144b6757ab81987681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aboveWaterTolerance: 0.5
+  _upDownSpeed: 1
 --- !u!114 &114066541045534786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3816,8 +3816,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kills: 0
   weaponHolder: {fileID: 114499700638980110}
-  primaryGun: {fileID: 0}
-  secondaryGun: {fileID: 0}
+  primaryGun: {fileID: 114422824291826498}
+  secondaryGun: {fileID: 114711530766355512}
 --- !u!114 &114161845971688808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4022,6 +4022,23 @@ MonoBehaviour:
   SecondaryGun: {fileID: 1636092818509808}
   currentGun: {fileID: 0}
   CurrentWeapon: 0
+--- !u!114 &114592144796121266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408130053243602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e626fcc6b462c42a81f16ae6253676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 50
+  PlayerHealth: {fileID: 114950864135597578}
+  m4: {fileID: 114422824291826498}
+  m16: {fileID: 114711530766355512}
+  m4go: {fileID: 1098746070359794}
+  m16go: {fileID: 1636092818509808}
 --- !u!114 &114711530766355512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4062,7 +4079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab5124970ae04a25aa91b1a93fcfc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1000
   isDestroyed: 0
 --- !u!124 &124763865393063204
 Behaviour:
@@ -4086,8 +4103,8 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e7a4c5fff16a95742a645409eb68e1cc, type: 3}
-  - {fileID: 2100002, guid: e7a4c5fff16a95742a645409eb68e1cc, type: 3}
+  - {fileID: 2100000, guid: 3307fc38737b54b43a6eafb2cf2296d8, type: 2}
+  - {fileID: 2100000, guid: 713f8d12f5dbfb640b7a4874212c2c08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4141,7 +4158,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e7a4c5fff16a95742a645409eb68e1cc, type: 3}
+  - {fileID: 2100000, guid: 3307fc38737b54b43a6eafb2cf2296d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

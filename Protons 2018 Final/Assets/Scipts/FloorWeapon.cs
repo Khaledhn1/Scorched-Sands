@@ -25,12 +25,12 @@ public class FloorWeapon : MonoBehaviour {
         //if we hit something
         if (Input.GetKeyDown(KeyCode.E))
         {
+            //if E pressed
             if (Physics.Raycast(r, out hitInfo))
             {
-            
                    if (hitInfo.transform.CompareTag("Weapon"))
                     {
-                
+                //if thing we hit is weapon
 
                     
                         if(weaponHolder.CurrentWeapon == 1)
@@ -60,6 +60,7 @@ public class FloorWeapon : MonoBehaviour {
                         clone.GetComponent<Gun>().fpsCam = myCam;
                     }
                 }
+                //instantiate a new weapon instead of one in your hand
             }
         }
     }

@@ -21,7 +21,7 @@ public class GetInCar : MonoBehaviour {
         carUserControl.enabled = false;
         carController.enabled = false;
         MyCamera.enabled = false;
-
+        //make sure everything on the car is disabled
     }
 
 	// Update is called once per frame
@@ -31,13 +31,14 @@ public class GetInCar : MonoBehaviour {
         {
           print(CarActive);
 			    if(!CarActive) ChangeChar(); else startPlayer();
+            //if we press E switch from character to car and vice versa
         }
 }
   void startPlayer(){
   togglePlayer();
   toggleCar();
   Char.transform.position = new Vector3(MyCar.transform.position.x -2f,MyCar.transform.position.y,MyCar.transform.position.z);
-
+        //spawns player next to car
   }
 	void ChangeChar(){
 
@@ -56,6 +57,7 @@ public class GetInCar : MonoBehaviour {
                     }
                 }
             }
+        //disables character and enables car controls
 
 	}
   void togglePlayer()

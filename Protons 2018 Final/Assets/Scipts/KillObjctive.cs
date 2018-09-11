@@ -12,6 +12,7 @@ public class KillObjctive : MonoBehaviour {
 	
 	void Update () {
         if (scoreCounter.kills == requiredScore)
+            //if we got the required amount of kills
         {
             EndObjective();
         }
@@ -21,5 +22,6 @@ public class KillObjctive : MonoBehaviour {
         print("Yay");
         isDone = true;
         Destroy(gameObject);
+        //Destroy objective (See objective manager)
     }
 }

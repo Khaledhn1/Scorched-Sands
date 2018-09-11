@@ -5,9 +5,8 @@ using UnityEngine;
 public class RecoilController : MonoBehaviour {
 	GameObject weapon;
     public Camera myCamera;
-	float maxRecoil_x = -10f;
+	public float maxRecoil_x = -10f;
 	float recoilSpeed = 10f;
-	float recoil = 0.0f;
     Gun currentgun;
 
     private void Start()
@@ -16,22 +15,13 @@ public class RecoilController : MonoBehaviour {
 
     }
     void Update () {
-        Recoiling();
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && !currentgun.isReloading)
 		{
-			recoil += 0.01f;
-
+            Transform myCameraTransform = myCamera.transform;
+            myCameraTransform.Rotate(Vector3.right * maxRecoil_x * recoilSpeed * Time.deltaTime);
+            //rotates camera if we shoot
         }
 
 
     }
-    void Recoiling()
-	{
-        if (recoil > 0 && !currentgun.isReloading)
-        {
-            Transform myCameraTransform = myCamera.transform;
-            myCameraTransform.Rotate(Vector3.right* maxRecoil_x * recoilSpeed * Time.deltaTime);
-            recoil -= Time.deltaTime;
-        }
-	}
 }

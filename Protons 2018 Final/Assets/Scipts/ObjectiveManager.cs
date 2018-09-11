@@ -21,35 +21,37 @@ public class ObjectiveManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         scoreCounter = (ScoreCounter)FindObjectOfType(typeof(ScoreCounter));
-        locSpawnPoint = GameObject.FindGameObjectsWithTag("ObjectiveSpawnPoint");
+        locSpawnPoint = GameObject.FindGameObjectsWithTag("ObjectiveSpawnPoint");//Finds the positions where a location objective can be spawned
         setObj();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        LocationObjective locObj = (LocationObjective)FindObjectOfType(typeof(LocationObjective));
-        killObj = (KillObjctive)FindObjectOfType(typeof(KillObjctive));
-        if(locObj == null && killObj == null)
+
+        if(loc == null && kill == null)
         {
             setObj();
+            //if there are no objectives, make one
         }
-		if (type == 1) text.text = ("GO TO:"+loc.transform.position+" or just the big white tower :)");
+		if (type == 1) text.text = ("GO TO:"+loc.transform.position+" or just head to the beacon :)");
 		else {
 		KillObjctive mykill = kill.GetComponent<KillObjctive>();
 		text.text = ("0/" + mykill.requiredScore+" Kills");
 		
 		}
 		objDone.text = (ObjectivesComplete+" Objectives Complete");
+        //prints text in UI
     }
     void setObj()
     {
         nextObj = Random.Range(0, 2);
+        //choose randomly between a location objective and a kill objective
         if (nextObj == 0)
         {
             int spawnPointIndex = Random.Range(0, locSpawnPoint.Length);
             loc = Instantiate(locationObjective, locSpawnPoint[spawnPointIndex].transform.position, locSpawnPoint[spawnPointIndex].transform.rotation);
             print("New Loc Obj");
-			
+			//creates a new location objective at one of the set positions
 			type = 1;
         }
         if(nextObj == 1)
@@ -61,21 +63,16 @@ public class ObjectiveManager : MonoBehaviour {
             KillObjctive mykill = kill.GetComponent<KillObjctive>();
             mykill.requiredScore = Random.Range(5, 20);
             print("New Kill Obj: " + mykill.requiredScore);
+            //Creates a kill objective with a random amount of required kills between 5 and 20
 			type = 0;
-			
-			
-			
         }
         print(ObjectivesComplete);
 		if (!firstrun){
         ObjectivesComplete += 1;
 		}
-		
 		firstrun = false;
-        if(ObjectivesComplete == 5)
-        {
-            //rewards here
-        }
+        // adds to number of completed objectives
+
     }
 
 }

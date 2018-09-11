@@ -7,7 +7,6 @@ public class WeaponHolder : MonoBehaviour {
     public GameObject currentGun;
     public int CurrentWeapon;
 
-	// Use this for initialization
     void Start () {
         PrimaryGun.SetActive(true);
         SecondaryGun.SetActive(false);
@@ -15,7 +14,6 @@ public class WeaponHolder : MonoBehaviour {
         currentGun = PrimaryGun;
 	}
 	
-	// Update is called once per frame
 	void Update () {
         if(Input.GetKeyDown("1"))
         {
@@ -37,6 +35,6 @@ public class WeaponHolder : MonoBehaviour {
         {
             currentGun = SecondaryGun;
         }
-
+        //switches weapons
 	}
 }

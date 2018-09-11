@@ -11,6 +11,7 @@ public class Target : MonoBehaviour {
         {
             Die();
         }
+        //takes damage if commanded to by another object and dies if health is 0
     }
     public void Die()
     {
