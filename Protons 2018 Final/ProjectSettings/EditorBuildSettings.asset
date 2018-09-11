@@ -11,10 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main map.unity
     guid: 7e38afdb2699df847a8f13728b1a9a26
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/level1.unity
     guid: c476a13debb1d8a42a23c905e24892df
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Weapon Testing.unity
     guid: 42d80eea0f3cf4963828b151d442ceee
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: b82edc6b1f943b240892dc7af8c65672
   m_configObjects: {}
