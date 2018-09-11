@@ -325,3 +325,13 @@ fieldset {
 :-ms-input-placeholder {
   color: #888;
 }
+footer{
+	background-color: #333;
+	position:fixed;
+	left:0px;
+	bottom:0px;
+	height:25px;
+	width:100%;
+	color: #ffffff;
+	font-size: 18px;
+}
