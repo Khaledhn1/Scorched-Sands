@@ -5,7 +5,7 @@ using UnityEngine;
 public class RecoilController : MonoBehaviour {
     public Camera myCamera;
     public float maxRecoil_x = -8f;
-	float recoilSpeed = 10f;
+	float recoilSpeed = 40f;
     Gun currentgun;
     Quaternion recoilGoal ;
 

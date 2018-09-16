@@ -8,11 +8,13 @@ public class LevelLoader : MonoBehaviour {
 	public GameObject mm;
 	public Slider slider;
 	public Text ptext;
+	public GameObject DEVBUTTON;
 	//Start Load
 	public void LoadLevel(int Index){
 		LS.SetActive(true);
 		mm.SetActive(false);
 		StartCoroutine(LoadAsynchronously(Index));
+		DEVBUTTON.SetActive(false);
 	}
 	//Load the level and update the UI
 	IEnumerator LoadAsynchronously(int Index){

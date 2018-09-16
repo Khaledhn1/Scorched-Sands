@@ -28,17 +28,20 @@ void Start(){
 		 MM.SetActive(false); 
 		 Options_Menu.SetActive(true);
 		 DEV_MENU.SetActive(false);
+		 DEVBUTTON.SetActive(false);
 	}
 	//Enable Main menu
 	public void MainMenu(){
 		 MM.SetActive(true); 
 		 Options_Menu.SetActive(false);		 
 		 DEV_MENU.SetActive(false);
+		 DEVBUTTON.SetActive(true);
 	}
 	//Enables Dev Menu
 	public void DevMenu(){
 		 MM.SetActive(false); 
 		 Options_Menu.SetActive(false);
 		 DEV_MENU.SetActive(true);
+		 DEVBUTTON.SetActive(false);
 	}
 }
