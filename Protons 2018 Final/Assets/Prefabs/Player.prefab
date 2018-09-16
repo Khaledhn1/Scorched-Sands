@@ -137,9 +137,10 @@ GameObject:
   - component: {fileID: 95149520618470644}
   - component: {fileID: 114422824291826498}
   - component: {fileID: 114423053037166060}
+  - component: {fileID: 114859321652360236}
   m_Layer: 10
   m_Name: M4A1
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -693,8 +694,6 @@ GameObject:
   - component: {fileID: 82297455974148258}
   - component: {fileID: 114950864135597578}
   - component: {fileID: 114066541045534786}
-  - component: {fileID: 114335653549612584}
-  - component: {fileID: 114064995412029224}
   - component: {fileID: 114592144796121266}
   m_Layer: 0
   m_Name: Player
@@ -932,6 +931,7 @@ GameObject:
   - component: {fileID: 82879625349564280}
   - component: {fileID: 95131797845541294}
   - component: {fileID: 114161845971688808}
+  - component: {fileID: 114258559262542054}
   m_Layer: 10
   m_Name: mg61
   m_TagString: Untagged
@@ -2660,7 +2660,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408130053243602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 418.15, y: -15.589981, z: 588.12}
+  m_LocalPosition: {x: 29.04, y: 8.151, z: 34.5}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4505651714008924}
@@ -3777,19 +3777,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114064995412029224
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1408130053243602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a146203583342144b6757ab81987681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _aboveWaterTolerance: 0.5
-  _upDownSpeed: 1
 --- !u!114 &114066541045534786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3830,6 +3817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCamera: {fileID: 20335342641365918}
+  maxRecoil_x: -8
 --- !u!114 &114172894219802050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3953,19 +3941,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
---- !u!114 &114335653549612584
+--- !u!114 &114258559262542054
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1408130053243602}
-  m_Enabled: 1
+  m_GameObject: {fileID: 1636092818509808}
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f26a995f4bd5411ea0fbe8d9fa78b6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1318485b88b8f4339b18a8cb533f8aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredScore: 1
-  isDone: 0
+  playerCamera: {fileID: 1011794987709718}
+  weaponHolder: {fileID: 114499700638980110}
+  mygun: {fileID: 114711530766355512}
 --- !u!114 &114422824291826498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4007,6 +3996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCamera: {fileID: 20335342641365918}
+  maxRecoil_x: -8
 --- !u!114 &114499700638980110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4035,10 +4025,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 50
   PlayerHealth: {fileID: 114950864135597578}
-  m4: {fileID: 114422824291826498}
-  m16: {fileID: 114711530766355512}
-  m4go: {fileID: 1098746070359794}
-  m16go: {fileID: 1636092818509808}
 --- !u!114 &114711530766355512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4068,6 +4054,20 @@ MonoBehaviour:
   maxClip: 10
   targeted: 0
   myTargets: 0
+--- !u!114 &114859321652360236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098746070359794}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1318485b88b8f4339b18a8cb533f8aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 1011794987709718}
+  weaponHolder: {fileID: 114499700638980110}
+  mygun: {fileID: 114422824291826498}
 --- !u!114 &114950864135597578
 MonoBehaviour:
   m_ObjectHideFlags: 1

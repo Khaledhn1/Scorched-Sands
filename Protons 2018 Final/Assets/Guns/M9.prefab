@@ -403,5 +403,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
-  prefab: {fileID: 1947910089961580, guid: bcf4fc864c72242029c1c297959cc86e, type: 2}
+  prefab: {fileID: 1299546845867972, guid: ff57f126293ea4ffca38f859219fa924, type: 2}
   weaponHolder: {fileID: 0}

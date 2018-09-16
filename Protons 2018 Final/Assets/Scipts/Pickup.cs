@@ -12,8 +12,12 @@ public class Pickup : MonoBehaviour {
 	Gun secondary;
 	GameObject PrimaryGO;
 	GameObject SecondaryGO;
-    public WeaponHolder weaponHolder;
-    // Use this for initialization
+    WeaponHolder weaponHolder;
+
+    private void Start()
+    {
+        weaponHolder = (WeaponHolder)FindObjectOfType(typeof(WeaponHolder));
+    }
     private void Update()
     {
         PrimaryGO = weaponHolder.PrimaryGun;

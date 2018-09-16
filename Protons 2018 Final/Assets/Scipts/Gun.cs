@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        currentAmmo = 10;
+        currentAmmo = maxClip;
     }
 
     // Update is called once per frame

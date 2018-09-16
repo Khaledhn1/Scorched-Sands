@@ -1,20 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FloorWeapon : MonoBehaviour {
 
     public GameObject playerCamera;
-    public GameObject prefab;
-    GameObject primary;
-    GameObject secondary;
     public WeaponHolder weaponHolder;
-    Transform gun;
+    FloorWeapon myself;
+    public Gun mygun;
+    FloorWeapon floorWeapon;
 
     private void Start()
     {
-        primary = weaponHolder.PrimaryGun;
-        secondary = weaponHolder.SecondaryGun;
+        myself = GetComponent<FloorWeapon>();
+        floorWeapon = weaponHolder.PrimaryGun.GetComponent<FloorWeapon>();
+
     }
     // Update is called once per frame
     void Update()
@@ -30,34 +28,20 @@ public class FloorWeapon : MonoBehaviour {
             {
                    if (hitInfo.transform.CompareTag("Weapon"))
                     {
-                //if thing we hit is weapon
-
-                    
-                        if(weaponHolder.CurrentWeapon == 1)
-                        {
-                        gun = primary.transform;
-                        GameObject clone = Instantiate(prefab);
-                        Destroy(primary);
-                        print("destroyed");
-                        clone.transform.parent = gun.transform.parent;
-                        clone.transform.position = gun.transform.position;
-                        clone.transform.rotation = new Quaternion(gun.transform.rotation.x, gun.transform.rotation.y, gun.transform.rotation.z, gun.transform.rotation.w);
-                        weaponHolder.PrimaryGun = clone;
-                        Camera myCam = playerCamera.GetComponent<Camera>();
-                        clone.GetComponent<Gun>().fpsCam = myCam;
-                    }
-                        if (weaponHolder.CurrentWeapon == 2)
-                        {
-                         gun = secondary.transform;
-                        GameObject clone = Instantiate(prefab);
-                        Destroy(secondary);
-                        print("destroyed");
-                        clone.transform.parent = gun.transform.parent;
-                        clone.transform.position = gun.transform.position;
-                        clone.transform.rotation =  new Quaternion (gun.transform.rotation.x,gun.transform.rotation.y,gun.transform.rotation.z,gun.transform.rotation.w);
-						weaponHolder.SecondaryGun = clone;
-                        Camera myCam = playerCamera.GetComponent<Camera>();
-                        clone.GetComponent<Gun>().fpsCam = myCam;
+                    //if thing we hit is weapon
+                    if (weaponHolder.CurrentWeapon == 1)
+                    {
+                        Transform mytransform = transform;
+                        transform.parent = weaponHolder.PrimaryGun.transform.parent;
+                        transform.position = weaponHolder.PrimaryGun.transform.position;
+                        weaponHolder.PrimaryGun.transform.parent = null;
+                        weaponHolder.PrimaryGun.transform.position = mytransform.position;
+                        Gun weaponGun = weaponHolder.PrimaryGun.GetComponent<Gun>();
+                        weaponGun.enabled = false;
+                        mygun.enabled = true;
+                        floorWeapon.enabled = false;
+                        weaponHolder.PrimaryGun = gameObject;
+                        myself.enabled = !myself.enabled;
                     }
                 }
                 //instantiate a new weapon instead of one in your hand

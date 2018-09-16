@@ -14,6 +14,9 @@ public class GetInCar : MonoBehaviour {
     public CarController carController;
     public Camera PlayerCam;
 	public GameObject Char;
+    public float distFromCar = 2f;
+    public float requiredDist = 5f;
+    float dist;
     // Use this for initialization
     void Start()
     {
@@ -29,15 +32,16 @@ public class GetInCar : MonoBehaviour {
 
         if(Input.GetKeyUp(KeyCode.E))
         {
-          print(CarActive);
-			    if(!CarActive) ChangeChar(); else startPlayer();
+            print(CarActive);
+            if(!CarActive) ChangeChar(); else startPlayer();
             //if we press E switch from character to car and vice versa
         }
+        dist = Vector3.Distance(Char.transform.position,gameObject.transform.position);
 }
   void startPlayer(){
   togglePlayer();
   toggleCar();
-  Char.transform.position = new Vector3(MyCar.transform.position.x -2f,MyCar.transform.position.y,MyCar.transform.position.z);
+        Char.transform.position = new Vector3(MyCar.transform.position.x -distFromCar,MyCar.transform.position.y,MyCar.transform.position.z);
         //spawns player next to car
   }
 	void ChangeChar(){
@@ -47,7 +51,7 @@ public class GetInCar : MonoBehaviour {
 
 		if (Physics.Raycast(r, out hitInfo))
             {
-                if (hitInfo.transform.CompareTag("Vehicle"))
+            if (hitInfo.transform.CompareTag("Vehicle") && dist <= requiredDist)
                 {
                     if (CarActive == false)
                     {

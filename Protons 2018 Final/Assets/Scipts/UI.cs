@@ -7,6 +7,7 @@ public class UI : MonoBehaviour {
 
 	public GameObject[] guns;
 	GameObject guna;
+    GameObject gunb;
 	public Gun gun1;
 	public Gun gun2;
 	public Target player;
@@ -14,9 +15,15 @@ public class UI : MonoBehaviour {
 	public Text MaxAmmo;
 	public Animator playerAnim;
 	public Slider health;
+    public WeaponHolder weaponHolder;
 	// Use this for initialization
 	void Start () {
+        guns[0] = weaponHolder.PrimaryGun;
+        guns[1] = weaponHolder.SecondaryGun;
 		guna = guns[0];
+        gunb = guns[1];
+        gun1 = guna.GetComponent<Gun>();
+        gun2 = gunb.GetComponent<Gun>();
 		//update health
 		health.value = player.health;
 		//Update ui depending on what weapon is active

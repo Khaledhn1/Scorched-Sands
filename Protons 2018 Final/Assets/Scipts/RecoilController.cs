@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RecoilController : MonoBehaviour {
-	GameObject weapon;
     public Camera myCamera;
-	public float maxRecoil_x = -10f;
+    public float maxRecoil_x = -8f;
 	float recoilSpeed = 10f;
     Gun currentgun;
+    Quaternion recoilGoal ;
 
     private void Start()
     {
@@ -15,13 +15,17 @@ public class RecoilController : MonoBehaviour {
 
     }
     void Update () {
+        recoilGoal = myCamera.transform.rotation * Quaternion.Euler(maxRecoil_x,0,0);
+        Recoiling();
+        
+    }
+    void Recoiling()
+    {
         if (Input.GetButton("Fire1") && !currentgun.isReloading)
-		{
+        {
             Transform myCameraTransform = myCamera.transform;
-            myCameraTransform.Rotate(Vector3.right * maxRecoil_x * recoilSpeed * Time.deltaTime);
+            myCameraTransform.rotation = Quaternion.Slerp(myCameraTransform.rotation, recoilGoal, Time.deltaTime * recoilSpeed);
             //rotates camera if we shoot
         }
-
-
     }
 }

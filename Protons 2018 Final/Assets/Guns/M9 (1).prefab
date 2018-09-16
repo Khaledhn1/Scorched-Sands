@@ -109,9 +109,12 @@ GameObject:
   - component: {fileID: 114621308566888272}
   - component: {fileID: 82730552765245410}
   - component: {fileID: 95599921592317786}
+  - component: {fileID: 64484385906022198}
+  - component: {fileID: 114739776300557246}
+  - component: {fileID: 114419280709914596}
   m_Layer: 0
   m_Name: M9 (1)
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +139,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947910089961580}
   m_LocalRotation: {x: -0, y: -0.9879553, z: -0, w: 0.15474017}
-  m_LocalPosition: {x: -45.663, y: 2.47, z: -59.236}
+  m_LocalPosition: {x: 31.452595, y: 4.21, z: 34.7743}
   m_LocalScale: {x: 0.018000016, y: 0.018000001, z: 0.018000016}
   m_Children:
   - {fileID: 4905792648558920}
@@ -409,6 +412,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947910089961580}
   m_Mesh: {fileID: 4300000, guid: d56e535163a374f3192787e9f39d45e0, type: 3}
+--- !u!64 &64484385906022198
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1947910089961580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: d56e535163a374f3192787e9f39d45e0, type: 3}
 --- !u!82 &82730552765245410
 AudioSource:
   m_ObjectHideFlags: 1
@@ -418,7 +435,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 05d9094b145464f15b419886f7d75c51, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 968431bcbd67545f188012816f65384d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -522,7 +539,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114621308566888272
+--- !u!114 &114419280709914596
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,27 +547,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 1947910089961580}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a2e2bfc0e204783bd359f7d05c1a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamera: {fileID: 0}
+  maxRecoil_x: -8
+--- !u!114 &114621308566888272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1947910089961580}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d639b91f279474d389e52ac2cebcacfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isShooting: 0
-  damage: 5
+  damage: 30
   range: 50
   maxAmmo: 100
   currentAmmo: 0
   reloadTime: 1
   isReloading: 0
-  animator: {fileID: 0}
+  animator: {fileID: 95599921592317786}
   fireRate: 15
   particlesystem: {fileID: 198656952883949152}
   audioSource: {fileID: 82730552765245410}
-  audioClip: {fileID: 8300000, guid: 05d9094b145464f15b419886f7d75c51, type: 3}
+  audioClip: {fileID: 8300000, guid: 968431bcbd67545f188012816f65384d, type: 3}
   fpsCam: {fileID: 20969904328916082, guid: f44453abb5e1d46c8a377c3b9006dff3, type: 2}
   impactEffect: {fileID: 1179865073892620, guid: 3a6df3d5a02854771bd2aa3ee25b8ac6,
     type: 2}
   maxClip: 10
   targeted: 0
   myTargets: 0
+--- !u!114 &114739776300557246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1947910089961580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1318485b88b8f4339b18a8cb533f8aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  weaponHolder: {fileID: 0}
+  mygun: {fileID: 114621308566888272}
 --- !u!198 &198656952883949152
 ParticleSystem:
   m_ObjectHideFlags: 1
