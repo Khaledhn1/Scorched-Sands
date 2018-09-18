@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4764299533850726}
   - component: {fileID: 33116539903260896}
   - component: {fileID: 23284650764707430}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4090128253842712}
   - component: {fileID: 198656952883949152}
   - component: {fileID: 199935123248002966}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4845166390989320}
   - component: {fileID: 33186569248755754}
   - component: {fileID: 23471163478642034}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4673589594644668}
   - component: {fileID: 33077390443865072}
   - component: {fileID: 23443041044119710}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,8 +89,25 @@ GameObject:
   - component: {fileID: 4905792648558920}
   - component: {fileID: 33194173287328654}
   - component: {fileID: 23196657570547326}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hammer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1719520413509348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4868626246214984}
+  - component: {fileID: 20671308071695020}
+  - component: {fileID: 81150101112954946}
+  m_Layer: 10
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +129,7 @@ GameObject:
   - component: {fileID: 64484385906022198}
   - component: {fileID: 114739776300557246}
   - component: {fileID: 114419280709914596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: M9 (1)
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -147,6 +164,7 @@ Transform:
   - {fileID: 4845166390989320}
   - {fileID: 4673589594644668}
   - {fileID: 4090128253842712}
+  - {fileID: 4868626246214984}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -189,6 +207,19 @@ Transform:
   m_Father: {fileID: 4126917948147772}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4868626246214984
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719520413509348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4126917948147772}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4905792648558920
 Transform:
   m_ObjectHideFlags: 1
@@ -202,6 +233,46 @@ Transform:
   m_Father: {fileID: 4126917948147772}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20671308071695020
+Camera:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719520413509348}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.01
+  far clip plane: 1000
+  field of view: 65
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!23 &23196657570547326
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -426,6 +497,13 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d56e535163a374f3192787e9f39d45e0, type: 3}
+--- !u!81 &81150101112954946
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719520413509348}
+  m_Enabled: 1
 --- !u!82 &82730552765245410
 AudioSource:
   m_ObjectHideFlags: 1

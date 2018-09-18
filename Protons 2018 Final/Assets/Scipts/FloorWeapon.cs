@@ -7,11 +7,15 @@ public class FloorWeapon : MonoBehaviour {
     FloorWeapon myself;
     public Gun mygun;
     FloorWeapon floorWeapon;
+    Transform gunTransform;
+    Vector3 myPosition;
+    Camera myCamera;
 
     private void Start()
     {
         myself = GetComponent<FloorWeapon>();
-        floorWeapon = weaponHolder.PrimaryGun.GetComponent<FloorWeapon>();
+        myCamera = GetComponentInChildren<Camera>();
+        myPosition = transform.position;
 
     }
     // Update is called once per frame
@@ -31,16 +35,39 @@ public class FloorWeapon : MonoBehaviour {
                     //if thing we hit is weapon
                     if (weaponHolder.CurrentWeapon == 1)
                     {
-                        Transform mytransform = transform;
                         transform.parent = weaponHolder.PrimaryGun.transform.parent;
                         transform.position = weaponHolder.PrimaryGun.transform.position;
-                        weaponHolder.PrimaryGun.transform.parent = null;
-                        weaponHolder.PrimaryGun.transform.position = mytransform.position;
+                        gunTransform = weaponHolder.PrimaryGun.transform;
+                        gunTransform.parent = null;
+                        gunTransform.position = myPosition;
                         Gun weaponGun = weaponHolder.PrimaryGun.GetComponent<Gun>();
+                        Camera weaponCamera = weaponHolder.PrimaryGun.GetComponentInChildren<Camera>();
+                        weaponCamera.enabled = false;
+                        myCamera.enabled = true;
                         weaponGun.enabled = false;
                         mygun.enabled = true;
-                        floorWeapon.enabled = false;
+                        floorWeapon = weaponHolder.PrimaryGun.GetComponent<FloorWeapon>();
+                        floorWeapon.enabled = true;
+                        print(floorWeapon);
                         weaponHolder.PrimaryGun = gameObject;
+                        myself.enabled = !myself.enabled;
+                    }
+                    if (weaponHolder.CurrentWeapon == 2)
+                    {
+                        transform.parent = weaponHolder.SecondaryGun.transform.parent;
+                        transform.position = weaponHolder.SecondaryGun.transform.position;
+                        gunTransform = weaponHolder.SecondaryGun.transform;
+                        gunTransform.parent = null;
+                        gunTransform.position = myPosition;
+                        Gun weaponGun = weaponHolder.SecondaryGun.GetComponent<Gun>();
+                        Camera weaponCamera = weaponHolder.PrimaryGun.GetComponentInChildren<Camera>();
+                        weaponCamera.enabled = false;
+                        myCamera.enabled = false;
+                        weaponGun.enabled = false;
+                        mygun.enabled = true;
+                        floorWeapon = weaponHolder.SecondaryGun.GetComponent<FloorWeapon>();
+                        floorWeapon.enabled = true;
+                        weaponHolder.SecondaryGun = gameObject;
                         myself.enabled = !myself.enabled;
                     }
                 }
