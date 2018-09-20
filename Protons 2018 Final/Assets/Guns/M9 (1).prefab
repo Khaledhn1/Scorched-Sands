@@ -126,9 +126,9 @@ GameObject:
   - component: {fileID: 114621308566888272}
   - component: {fileID: 82730552765245410}
   - component: {fileID: 95599921592317786}
-  - component: {fileID: 64484385906022198}
   - component: {fileID: 114739776300557246}
   - component: {fileID: 114419280709914596}
+  - component: {fileID: 65954190353497632}
   m_Layer: 10
   m_Name: M9 (1)
   m_TagString: Weapon
@@ -156,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947910089961580}
   m_LocalRotation: {x: -0, y: -0.9879553, z: -0, w: 0.15474017}
-  m_LocalPosition: {x: 31.452595, y: 4.21, z: 34.7743}
+  m_LocalPosition: {x: 31.452595, y: 5.074, z: 34.7743}
   m_LocalScale: {x: 0.018000016, y: 0.018000001, z: 0.018000016}
   m_Children:
   - {fileID: 4905792648558920}
@@ -239,7 +239,7 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719520413509348}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -483,8 +483,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947910089961580}
   m_Mesh: {fileID: 4300000, guid: d56e535163a374f3192787e9f39d45e0, type: 3}
---- !u!64 &64484385906022198
-MeshCollider:
+--- !u!65 &65954190353497632
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -492,11 +492,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: d56e535163a374f3192787e9f39d45e0, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 3.8818386, y: 14.983998, z: 25.456253}
+  m_Center: {x: 0, y: 0.3356271, z: 0}
 --- !u!81 &81150101112954946
 AudioListener:
   m_ObjectHideFlags: 1
