@@ -41,7 +41,7 @@ public class GetInCar : MonoBehaviour {
   void startPlayer(){
   togglePlayer();
   toggleCar();
-        Char.transform.position = new Vector3(MyCar.transform.position.x -distFromCar,MyCar.transform.position.y,MyCar.transform.position.z);
+        Char.transform.position = new Vector3(MyCar.transform.position.x -distFromCar,MyCar.transform.position.y + 1f,MyCar.transform.position.z);
         //spawns player next to car
   }
 	void ChangeChar(){

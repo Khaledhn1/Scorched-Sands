@@ -138,7 +138,6 @@ GameObject:
   - component: {fileID: 114422824291826498}
   - component: {fileID: 114423053037166060}
   - component: {fileID: 114859321652360236}
-  - component: {fileID: 65674432663447552}
   m_Layer: 10
   m_Name: M4A1
   m_TagString: Weapon
@@ -933,7 +932,6 @@ GameObject:
   - component: {fileID: 95131797845541294}
   - component: {fileID: 114161845971688808}
   - component: {fileID: 114258559262542054}
-  - component: {fileID: 65032412467036502}
   m_Layer: 10
   m_Name: mg61
   m_TagString: Untagged
@@ -3408,30 +3406,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65032412467036502
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1636092818509808}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.4523377, z: 0.70826393}
-  m_Center: {x: -4.8612503e-12, y: 0.10976354, z: -0.03438013}
---- !u!65 &65674432663447552
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1098746070359794}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.881528, z: 2.297636}
-  m_Center: {x: -0.000000015414962, y: -0.08814699, z: 1.2096776}
 --- !u!75 &75260385784918312
 ConstantForce:
   m_ObjectHideFlags: 1

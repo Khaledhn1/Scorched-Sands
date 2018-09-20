@@ -11908,7 +11908,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4126917948147772, guid: bcf4fc864c72242029c1c297959cc86e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.074
+      value: 4.21
       objectReference: {fileID: 0}
     - target: {fileID: 4126917948147772, guid: bcf4fc864c72242029c1c297959cc86e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11934,11 +11934,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114419280709914596, guid: bcf4fc864c72242029c1c297959cc86e,
-        type: 2}
-      propertyPath: myCamera
-      value: 
-      objectReference: {fileID: 511742771}
     - target: {fileID: 114739776300557246, guid: bcf4fc864c72242029c1c297959cc86e,
         type: 2}
       propertyPath: playerCamera
@@ -11949,6 +11944,20 @@ Prefab:
       propertyPath: weaponHolder
       value: 
       objectReference: {fileID: 1229158624}
+    - target: {fileID: 114419280709914596, guid: bcf4fc864c72242029c1c297959cc86e,
+        type: 2}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 511742771}
+    - target: {fileID: 1719520413509348, guid: bcf4fc864c72242029c1c297959cc86e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20671308071695020, guid: bcf4fc864c72242029c1c297959cc86e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcf4fc864c72242029c1c297959cc86e, type: 2}
   m_IsPrefabAsset: 0
