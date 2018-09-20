@@ -8,6 +8,7 @@ public class HumanBehavior : MonoBehaviour {
 	private Follow follow;
 	public bool playerInSight;
 	public Transform player;
+	public ObjectiveManager obj;
 	public Target playerHealth;	
     public ParticleSystem particleSystem;
 	
@@ -70,8 +71,13 @@ public class HumanBehavior : MonoBehaviour {
 			if (Physics.Raycast(r, out hitInfo))
 			{
 				if (hitInfo.transform.CompareTag("Player"))
-				{
-						switchBehavior();
+				{	
+						if(obj) switchBehavior();
+						else {
+							playerInSight = true;
+							wander.enabled = false;
+							follow.enabled = true;
+						}
 						
 						yield return new WaitForSeconds(5);
 				}

@@ -10,7 +10,8 @@ public class ZombieBehavior : MonoBehaviour {
 	public Transform player;
 	public Target playerHealth;
 	private Animator anim;
-	private Gun gun;
+	private Gun gun;	
+	public ObjectiveManager obj;
 
 	// Use this for initialization
 	void Start () {
@@ -53,7 +54,12 @@ public class ZombieBehavior : MonoBehaviour {
 			{
 				if (hitInfo.transform.CompareTag("Player"))
 				{
-						switchBehavior();
+						if(obj) switchBehavior();
+						else {
+							playerInSight = true;
+							wander.enabled = false;
+							follow.enabled = true;
+						}
 						yield return new WaitForSeconds(5);
 				}
 			}

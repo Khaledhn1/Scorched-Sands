@@ -13,6 +13,7 @@ TagManager:
   - Ammo
   - Health
   - ObjectiveSpawnPoint
+  - Gate
   layers:
   - Default
   - TransparentFX

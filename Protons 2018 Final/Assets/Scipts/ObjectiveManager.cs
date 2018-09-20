@@ -14,6 +14,7 @@ public class ObjectiveManager : MonoBehaviour {
 	public Text text;
 	public Text objDone;
     public int ObjectivesComplete;
+	public bool objtype;
 	int type;
 	GameObject kill;
 	bool firstrun = true;
@@ -33,7 +34,9 @@ public class ObjectiveManager : MonoBehaviour {
             StartCoroutine(setObj());
             //if there are no objectives, make one
         }
-		if (type == 1) text.text = ("GO TO:"+loc.transform.position+" or just head to the beacon :)");
+        if (type == 1) { 
+            text.text = ("GO TO:" + loc.transform.position + " or just head to the beacon :)"); 
+        }
 		else {
 		KillObjctive mykill = kill.GetComponent<KillObjctive>();
             text.text = (scoreCounter.kills+"/" + mykill.requiredScore+" Kills");
@@ -48,6 +51,7 @@ public class ObjectiveManager : MonoBehaviour {
         //choose randomly between a location objective and a kill objective
         if (nextObj == 0)
         {
+			objtype = false;
             int spawnPointIndex = Random.Range(0, locSpawnPoint.Length);
             loc = Instantiate(locationObjective, locSpawnPoint[spawnPointIndex].transform.position, locSpawnPoint[spawnPointIndex].transform.rotation);
             text.text = ("New location Objective");
@@ -58,6 +62,7 @@ public class ObjectiveManager : MonoBehaviour {
         }
         if(nextObj == 1)
         {
+			objtype = true;
             int spawnPointIndex = Random.Range(0, locSpawnPoint.Length);
             kill = Instantiate(killObjctive);
             scoreCounter.primaryGun.myTargets = 0;
