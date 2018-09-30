@@ -6,21 +6,17 @@ public class Follow : MonoBehaviour {
 
 	public Transform player;
 	public Target PlayerHealth;
-	public Animator anim;
+    private Animator anim;
 	public float speed = 3f;
 	void Start () {
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponent<Animator>();
     }
 	
 	void Update () {
  
-        if 
-		(Vector3.Distance(transform.position, player.position) > 1f)
-		{
-			anim.Play("run");
-			
-        }
-		else anim.Play("idle");
+
+			anim.Play("Run");
+		
  
     }
 	void LateUpdate(){

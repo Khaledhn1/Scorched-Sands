@@ -27,7 +27,7 @@ public class Wander : MonoBehaviour {
 	void Update ()
 	{
 		
-		anim.Play("run");
+		anim.Play("Run");
 		
 	}
 	void LateUpdate(){

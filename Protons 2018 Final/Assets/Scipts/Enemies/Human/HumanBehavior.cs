@@ -32,8 +32,8 @@ public class HumanBehavior : MonoBehaviour {
 		//playerHealth = player.GetComponent<Target>();
 
 		playerInSight = false;
-
-		wander.enabled = true;
+        //anim.Play("Run");
+        wander.enabled = true;
 		follow.enabled = false;
 
 		StartCoroutine(genericBehaviour());
@@ -44,7 +44,7 @@ public class HumanBehavior : MonoBehaviour {
 		nextTimeToFire = Time.time + 1 / fireRate;
 			if(playerInSight){
 				float dist = Vector3.Distance(player.position, gameObject.transform.position);
-				if (dist > 5 && dist < 30){
+				if (dist > 0 && dist < 50){
 					RaycastHit hitInfo;
 					Ray r = new Ray(gameObject.transform.position, gameObject.transform.forward);
 					Debug.Log("Created Ray");
@@ -91,7 +91,7 @@ public class HumanBehavior : MonoBehaviour {
 		playerInSight = !playerInSight;
 		wander.enabled = !wander.enabled;
 		follow.enabled = !follow.enabled;
-		anim.Play("Run");
+		
 	}
 
 }

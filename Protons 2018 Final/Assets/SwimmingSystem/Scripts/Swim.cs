@@ -35,6 +35,8 @@ namespace Assets.SwimmingSystem.Scripts
 
         private float _waterSurfacePosY = 0.0f;
 
+        public ParticleSystem bubbles;
+
         public float _aboveWaterTolerance = 0.5f;
 
         [Range(0.5f, 3.0f)]
@@ -125,6 +127,7 @@ namespace Assets.SwimmingSystem.Scripts
             JumpSpeed = _defJumpspeed;
             GravityMultiplier = _defGravityMultiplier;
             UserHeadBob = true;
+
         }
 
         // Let's dive
@@ -137,6 +140,7 @@ namespace Assets.SwimmingSystem.Scripts
             UserHeadBob = false;
 
             HandleUpDownSwimMovement();
+
    
         }
 
@@ -171,7 +175,8 @@ namespace Assets.SwimmingSystem.Scripts
         {
             RenderSettings.fog = true;
             RenderSettings.fogColor = _fogColorWater;
-            RenderSettings.fogDensity = 0.1f;
+            RenderSettings.fogDensity = 0.056f;
+            bubbles.Play();
             RenderSettings.fogMode = FogMode.Exponential;
 
         }
@@ -183,6 +188,7 @@ namespace Assets.SwimmingSystem.Scripts
             RenderSettings.fogDensity = _defFogDensity;
             RenderSettings.fog = _defFogEnabled;
             RenderSettings.fogMode = _defFogMode;
+            bubbles.Stop();
 
         }
 
